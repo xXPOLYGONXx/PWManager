@@ -4,11 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace PWMan
 {
 	public partial class MainPage : ContentPage
 	{
+        private bool _isValid = false;
+
+        public bool IsValid
+        {
+            get { return _isValid; }
+            set { _isValid = value; }
+        }
         Button eins, zwei, drei;
 		public MainPage()
 		{
@@ -45,7 +55,26 @@ namespace PWMan
 
         private void Eins_Pressed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IsValid = false;
+            Certificate cert = new Certificate(txtCer.Text, txtKey.Text, txtPassword.Text);
+            X509Certificate2 xcert = null;
+            
+            try
+            {
+                if (string.IsNullOrEmpty(cert.PrivateKey))
+                    xcert = cert.GetCertificateFromPEMstring(true);
+                else
+                    xcert = cert.GetCertificateFromPEMstring(false);
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("error", "An error occure during certificate creation: Error {0}", "OK");
+                return;
+            }
+            IsValid = true;
         }
     }
+    #region
+
+    #endregion
 }

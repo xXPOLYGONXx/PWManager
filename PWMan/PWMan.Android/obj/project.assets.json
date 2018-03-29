@@ -713,11 +713,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan.Android\\PWMan.Android.csproj",
+      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.Android\\PWMan.Android.csproj",
       "projectName": "PWMan.Android",
-      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan.Android\\PWMan.Android.csproj",
+      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.Android\\PWMan.Android.csproj",
       "packagesPath": "C:\\Users\\jamie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan.Android\\obj\\",
+      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -738,8 +738,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
-              "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
+            "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
+              "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
             }
           }
         }

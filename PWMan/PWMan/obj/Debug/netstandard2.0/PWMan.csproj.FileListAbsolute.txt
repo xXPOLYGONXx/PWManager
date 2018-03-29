@@ -9,3 +9,14 @@ C:\Users\jamie\Documents\Visual Studio 2017\Projects\PWManager\PWMan\PWMan\obj\D
 C:\Users\jamie\Documents\Visual Studio 2017\Projects\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.AssemblyInfo.cs
 C:\Users\jamie\Documents\Visual Studio 2017\Projects\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.dll
 C:\Users\jamie\Documents\Visual Studio 2017\Projects\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.pdb
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\bin\Debug\netstandard2.0\PWMan.deps.json
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\bin\Debug\netstandard2.0\PWMan.dll
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\bin\Debug\netstandard2.0\PWMan.pdb
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.csprojResolveAssemblyReference.cache
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.csproj.CoreCompileInputs.cache
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.App.xaml.g.cs
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.MainPage.xaml.g.cs
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.AssemblyInfoInputs.cache
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.AssemblyInfo.cs
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.dll
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.pdb

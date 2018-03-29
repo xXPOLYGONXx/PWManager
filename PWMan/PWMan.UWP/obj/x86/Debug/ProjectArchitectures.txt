@@ -1,0 +1,1 @@
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\PWMan.UWP.csproj;x86

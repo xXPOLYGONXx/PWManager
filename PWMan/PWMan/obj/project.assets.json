@@ -388,11 +388,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan\\PWMan.csproj",
+      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj",
       "projectName": "PWMan",
-      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan\\PWMan.csproj",
+      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj",
       "packagesPath": "C:\\Users\\jamie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan\\obj\\",
+      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

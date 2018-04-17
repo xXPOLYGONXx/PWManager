@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T12:47:20.221</Modified>
+      <Modified>2018-04-13T22:40:12.335</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\PWMan.UWP.exe">
       <PackagePath>entrypoint\PWMan.UWP.exe</PackagePath>
-      <Modified>2018-03-29T12:47:19.398</Modified>
+      <Modified>2018-04-13T22:40:10.476</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.0.1\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -713,165 +713,165 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\bin\Debug\netstandard2.0\PWMan.dll">
       <PackagePath>PWMan.dll</PackagePath>
-      <Modified>2018-03-29T12:47:15.024</Modified>
+      <Modified>2018-04-13T22:39:59.780</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-03-29T10:58:19.461</Modified>
+      <Modified>2018-03-29T13:50:24.563</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\LockScreenLogo.scale-100.png">
       <PackagePath>Assets\LockScreenLogo.scale-100.png</PackagePath>
-      <Modified>2018-03-29T10:58:19.431</Modified>
+      <Modified>2018-03-29T13:50:24.534</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\LockScreenLogo.scale-125.png">
       <PackagePath>Assets\LockScreenLogo.scale-125.png</PackagePath>
-      <Modified>2018-03-29T10:58:19.431</Modified>
+      <Modified>2018-03-29T13:50:24.536</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\LockScreenLogo.scale-150.png">
       <PackagePath>Assets\LockScreenLogo.scale-150.png</PackagePath>
-      <Modified>2018-03-29T10:58:19.432</Modified>
+      <Modified>2018-03-29T13:50:24.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-03-29T10:58:19.433</Modified>
+      <Modified>2018-03-29T13:50:24.538</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\LockScreenLogo.scale-400.png">
       <PackagePath>Assets\LockScreenLogo.scale-400.png</PackagePath>
-      <Modified>2018-03-29T10:58:19.433</Modified>
+      <Modified>2018-03-29T13:50:24.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.434</Modified>
+      <Modified>2018-03-29T13:50:24.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\SplashScreen.scale-125.png">
       <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.435</Modified>
+      <Modified>2018-03-29T13:50:24.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\SplashScreen.scale-150.png">
       <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.435</Modified>
+      <Modified>2018-03-29T13:50:24.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.436</Modified>
+      <Modified>2018-03-29T13:50:24.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.437</Modified>
+      <Modified>2018-03-29T13:50:24.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.438</Modified>
+      <Modified>2018-03-29T13:50:24.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square150x150Logo.scale-125.png">
       <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.438</Modified>
+      <Modified>2018-03-29T13:50:24.544</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square150x150Logo.scale-150.png">
       <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.439</Modified>
+      <Modified>2018-03-29T13:50:24.544</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.440</Modified>
+      <Modified>2018-03-29T13:50:24.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.440</Modified>
+      <Modified>2018-03-29T13:50:24.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.442</Modified>
+      <Modified>2018-03-29T13:50:24.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.scale-125.png">
       <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.442</Modified>
+      <Modified>2018-03-29T13:50:24.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.scale-150.png">
       <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.444</Modified>
+      <Modified>2018-03-29T13:50:24.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.445</Modified>
+      <Modified>2018-03-29T13:50:24.549</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.445</Modified>
+      <Modified>2018-03-29T13:50:24.549</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.targetsize-16_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.446</Modified>
+      <Modified>2018-03-29T13:50:24.550</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.447</Modified>
+      <Modified>2018-03-29T13:50:24.551</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.targetsize-32_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-32_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.448</Modified>
+      <Modified>2018-03-29T13:50:24.553</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.targetsize-48_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.449</Modified>
+      <Modified>2018-03-29T13:50:24.554</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Square44x44Logo.targetsize-256_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.447</Modified>
+      <Modified>2018-03-29T13:50:24.552</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.449</Modified>
+      <Modified>2018-03-29T13:50:24.554</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.450</Modified>
+      <Modified>2018-03-29T13:50:24.555</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Wide310x150Logo.scale-125.png">
       <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.451</Modified>
+      <Modified>2018-03-29T13:50:24.555</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Wide310x150Logo.scale-150.png">
       <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.451</Modified>
+      <Modified>2018-03-29T13:50:24.556</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.452</Modified>
+      <Modified>2018-03-29T13:50:24.557</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T10:58:19.453</Modified>
+      <Modified>2018-03-29T13:50:24.557</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\PWMan.UWP.xr.xml">
       <PackagePath>PWMan.UWP.xr.xml</PackagePath>
-      <Modified>2018-03-29T12:37:03.896</Modified>
+      <Modified>2018-03-29T13:50:25.506</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -884,11 +884,11 @@
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-29T12:47:19.911</Modified>
+      <Modified>2018-04-13T22:40:11.884</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\Core\PWMan.UWP.exe">
       <PackagePath>PWMan.UWP.exe</PackagePath>
-      <Modified>2018-03-29T12:47:20.215</Modified>
+      <Modified>2018-04-13T22:40:12.329</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

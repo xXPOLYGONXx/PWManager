@@ -12,69 +12,56 @@ namespace PWMan
 {
 	public partial class MainPage : ContentPage
 	{
-        private bool _isValid = false;
-
-        public bool IsValid
-        {
-            get { return _isValid; }
-            set { _isValid = value; }
-        }
-        Button eins, zwei, drei;
 		public MainPage()
 		{
 			InitializeComponent();
-            var button_font = Device.GetNamedSize(NamedSize.Large, typeof(Button));
-            var button_layout = new LayoutOptions(LayoutAlignment.Center, false);
+            PasswordListView.ItemsSource = new string[]{
+            "mono",
+            "monodroid",
+            "monotouch",
+            "monorail",
+            "monodevelop",
+            "monotone",
+            "monopoly",
+            "monomodal",
+            "mono",
+            "monodroid",
+            "monotouch",
+            "monorail",
+            "monodevelop",
+            "monotone",
+            "monopoly",
+            "monomodal",
+            "mononucleosis"
+            };
+        }
+        private async void NewPW(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PWMan.NewPW());
+        }
+        private async void ChangePW(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PWMan.ChangePW());
+        }
+        private async void ChangePWacl(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PWMan.BerechtigungPW());
+        }
+        private async void DelPW(object sender, EventArgs e)
+        {
+            string delete = await DisplayActionSheet("Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "NEIN!", "Ja");
 
-            eins = new Button() { Text = "eins", FontSize = button_font, BackgroundColor = Color.Gray };
-            zwei = new Button() { Text = "zwei", FontSize = button_font, BackgroundColor = Color.Gray };
-            drei = new Button() { Text = "drei", FontSize = button_font, BackgroundColor = Color.Gray };
-
-            eins.Pressed += Eins_Pressed;
-            zwei.Pressed += Zwei_Pressed;
-            drei.Pressed += Drei_Pressed;
-
-            var grid = new rMultiplatform.AutoGrid();
-            grid.DefineGrid(1, 3);
-            grid.AutoAdd(eins);
-            grid.AutoAdd(zwei);
-            grid.AutoAdd(drei);
-
-            Content = grid;
+            //await DisplayAlert("Passwort löschen!", "Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "Ja");
         }
 
-        private void Drei_Pressed(object sender, EventArgs e)
+        private void EditClicked_Share()
         {
-            throw new NotImplementedException();
+
         }
 
-        private void Zwei_Pressed(object sender, EventArgs e)
+        private void EditClicked_Create()
         {
-            throw new NotImplementedException();
-        }
 
-        private void Eins_Pressed(object sender, EventArgs e)
-        {
-            IsValid = false;
-            Certificate cert = new Certificate(txtCer.Text, txtKey.Text, txtPassword.Text);
-            X509Certificate2 xcert = null;
-            
-            try
-            {
-                if (string.IsNullOrEmpty(cert.PrivateKey))
-                    xcert = cert.GetCertificateFromPEMstring(true);
-                else
-                    xcert = cert.GetCertificateFromPEMstring(false);
-            }
-            catch (Exception ex)
-            {
-                DisplayAlert("error", "An error occure during certificate creation: Error {0}", "OK");
-                return;
-            }
-            IsValid = true;
         }
     }
-    #region
-
-    #endregion
 }

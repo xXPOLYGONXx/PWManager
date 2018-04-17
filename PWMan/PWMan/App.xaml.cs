@@ -13,10 +13,11 @@ namespace PWMan
 		{
 			InitializeComponent();
 
-			MainPage = new PWMan.MainPage();
-		}
+            MainPage = new NavigationPage(new PWMan.LoginPage()) { BarBackgroundColor = Color.FromHex("#45aaf2")};
+            
+        }
 
-		protected override void OnStart ()
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}

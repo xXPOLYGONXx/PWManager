@@ -59,7 +59,7 @@ namespace PWMan
 
         public static X509Certificate2 GetCertificateFromPEMstring(string publicCert, string privateKey, string password)
         {
-            byte[] certBuffer = Helpers.GetBytesFromPEM(publicCert, PemStringType.Certificate);
+            /*byte[] certBuffer = Helpers.GetBytesFromPEM(publicCert, PemStringType.Certificate);
             byte[] keyBuffer = Helpers.GetBytesFromPEM(privateKey, PemStringType.RsaPrivateKey);
 
             X509Certificate2 certificate = new X509Certificate2(certBuffer, password);
@@ -67,7 +67,8 @@ namespace PWMan
             RSACryptoServiceProvider prov = Crypto.DecodeRsaPrivateKey(keyBuffer);
             certificate.PrivateKey = prov;
 
-            return certificate;
+            return certificate;*/
+            return new X509Certificate2();
         }
 
     }

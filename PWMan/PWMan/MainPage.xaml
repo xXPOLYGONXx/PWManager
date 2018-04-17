@@ -3,9 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PWMan"
              x:Class="PWMan.MainPage">
-
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
+    <ContentPage.Content>
+        <StackLayout Margin="10,20,10,30">
+            <Label Text="Liste deiner Passwörter" VerticalOptions="Center" HorizontalOptions="Center" />
+            <ListView x:Name="PasswordListView"/>
+        </StackLayout>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Clicked="NewPW" Order="Primary" Icon="Xamarin.png" Text="Neues Passwort hinzufügen" Priority="0" />
+        <ToolbarItem Name="MenuItem2" Clicked="ChangePW" Order="Secondary" Icon="Xamarin.png" Text="Passwort aktualisieren" Priority="1" />
+        <ToolbarItem Name="MenuItem3" Clicked="ChangePWacl" Order="Secondary" Icon="Xamarin.png" Text="Zugriff ändern" Priority="1" />
+        <ToolbarItem Name="MenuItem4" Clicked="DelPW" Order="Secondary" Icon="Xamarin.png" Text="Passwort Löschen" Priority="1" />
+    </ContentPage.ToolbarItems>
 </ContentPage>
+    

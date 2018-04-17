@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWMan.ChangePW">
+    <ContentPage.Content>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--                          -->
+            <BoxView Grid.Row="0"/>
+            <StackLayout Grid.Row="0" Padding="0,0,0,10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Bitte alle Daten ausfüllen,"/>
+            </StackLayout>
+            <StackLayout Grid.Row="0" Padding="0,25,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="um ein neues Passwort zu speichern:"/>
+            </StackLayout>
+            <!--                          -->
+            <BoxView  Grid.Row="1"/>
+            <StackLayout Grid.Row="1" Padding="15,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                <Label Text="Anwendung:"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Padding="0,0,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                <Entry x:Name="anwendung" Placeholder="z.B. Facebook                       "/>
+            </StackLayout>
+            <!--                          -->
+            <BoxView Grid.Row="2"/>
+            <StackLayout Grid.Row="2" Padding="15,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                <Label Text="Username:"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Padding="0,0,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                <Entry x:Name="username" Placeholder="z.B. test@gmx.de                 "/>
+            </StackLayout>
+            <!--                          -->
+            <BoxView Grid.Row="3"/>
+            <StackLayout Grid.Row="3" Padding="15,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                <Label Text="Passwort:"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Padding="0,0,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                <Entry x:Name="password" Placeholder="z.B. testabcd                         "/>
+            </StackLayout>
+            <!--                          -->
+            <BoxView Grid.Row="4"/>
+            <StackLayout Grid.Row="4" Padding="15,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                <Label Text="Zusätzliche"/>
+                <Label Text="Informationen:"/>
+            </StackLayout>
+            <StackLayout Grid.Row="4" Padding="0,5,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                <Entry x:Name="information" Placeholder="z.B. loremipsumblaaaaa     "/>
+            </StackLayout>
+            <!--                          -->
+            <BoxView Grid.Row="5"/>
+
+            <!--                          -->
+            <BoxView Grid.Row="6"/>
+            <StackLayout Grid.Row="6" Padding="0,0,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Button Text="Passwort speichern"/>
+            </StackLayout>
+
+            <!--                          -->
+            <BoxView Grid.Row="7"/>
+            <StackLayout Grid.Row="7" Padding="0,0,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Button Text="abbrechen"/>
+            </StackLayout>
+            <!--                          -->
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

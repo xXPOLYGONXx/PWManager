@@ -11,13 +11,17 @@
 namespace PWMan {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\jamie\\Documents\\Visual Studio 2017\\Projects\\PWManager\\PWMan\\PWMan\\MainPa" +
-        "ge.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\MainPage.xa" +
+        "ml")]
     public partial class MainPage : global::Xamarin.Forms.ContentPage {
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView PasswordListView;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
+            PasswordListView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "PasswordListView");
         }
     }
 }

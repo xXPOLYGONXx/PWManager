@@ -108,6 +108,7 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "PWMan.Android.dll" comes first in this list. */
 		"PWMan.Android.dll",
 		"FormsViewGroup.dll",
+		"MySql.Data.CF.dll",
 		"PWMan.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Annotations.dll",

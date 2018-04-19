@@ -73,7 +73,6 @@ namespace PWMan
                            
         } 
 
-
         private async void NewPW(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PWMan.NewPW());

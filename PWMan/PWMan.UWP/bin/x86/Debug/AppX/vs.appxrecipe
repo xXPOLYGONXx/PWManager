@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-19T20:11:26.789</Modified>
+      <Modified>2018-04-19T20:16:42.186</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\PWMan.UWP.exe">
       <PackagePath>entrypoint\PWMan.UWP.exe</PackagePath>
-      <Modified>2018-04-19T20:11:24.750</Modified>
+      <Modified>2018-04-19T20:16:41.383</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.0.1\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -713,7 +713,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\bin\Debug\netstandard2.0\PWMan.dll">
       <PackagePath>PWMan.dll</PackagePath>
-      <Modified>2018-04-19T20:11:19.150</Modified>
+      <Modified>2018-04-19T20:16:37.005</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -884,11 +884,11 @@
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-19T20:11:26.367</Modified>
+      <Modified>2018-04-19T20:16:41.919</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\Core\PWMan.UWP.exe">
       <PackagePath>PWMan.UWP.exe</PackagePath>
-      <Modified>2018-04-19T20:11:26.782</Modified>
+      <Modified>2018-04-19T20:16:42.182</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

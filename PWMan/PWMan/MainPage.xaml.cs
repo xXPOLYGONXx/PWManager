@@ -15,8 +15,12 @@ namespace PWMan
 {
 	public partial class MainPage : ContentPage
 	{
-        string uid;
-        string UserID;
+        public DataTable deletlog;
+
+        public DataTable Listview = new DataTable();
+        public string username, UserID;
+        public List<string> PIDs = new List<string>();
+        public List<System.Data.DataRow> PWs;
         WebConnect Connection = new WebConnect();
         public MainPage(string username)
 		{
@@ -27,39 +31,46 @@ namespace PWMan
         {
             PasswordListView.ItemsSource = new string[] { };
 
-            byte[] tempbytes = Connection.DBRequest("Get_Own_Uid",username);
-            uid = System.Text.Encoding.Default.GetString(tempbytes);
-            DataTable UID = Connection.FetchToDT(uid);
+            DataTable UID = Connection.DBtoDT("Get_Own_Uid", username);
             //Testausgabe
             Connection.PrintDTtoDebug(UID);
-            foreach (System.Data.DataRow row in UID.Rows)
+            deletlog = UID;
+            //foreach (System.Data.DataRow row in UID.Rows)
+            //{
+            //    UserID = row.ItemArray[0].ToString();
+            //}
+
+            UserID = UID.Rows[1].ItemArray[0].ToString();
+
+
+            DataTable PID = Connection.DBtoDT("Get_Own_Passwords", UserID);
+            if (PID.Rows.Count > 0)
             {
-                UserID = row.ItemArray[0].ToString();
-            }
-            /*
-            DataTable PID = getSQLData("SELECT PID from [dbo].[PWMapping] where UID='" + UserID + "'");
-            foreach (System.Data.DataRow row in PID.Rows)
-            {
-                PIDs.Add(row.ItemArray[0].ToString());
-            }
-            string pidstring = "";
-            foreach (string pid in PIDs)
-            {
-                if (pidstring == "")
+                foreach (System.Data.DataRow row in PID.Rows)
                 {
-                    pidstring = "SELECT PID,Anwendung,Username,Passwort,Informationen from [dbo].[PWList] where PID='" + pid + "'";
+                    PIDs.Add(row.ItemArray[0].ToString());
                 }
-                else
+                Listview.Columns.Add("PID");
+                Listview.Columns.Add("Anwendung");
+                Listview.Columns.Add("Username");
+                Listview.Columns.Add("Passwort");
+                Listview.Columns.Add("Informationen");
+                foreach (string pid in PIDs)
                 {
-                    pidstring = pidstring + " OR PID='" + pid + "'";
+                    Listview.Rows.Add(Connection.FetchToDT(System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Password_From_ID", pid))).Rows[0].ItemArray);
                 }
+                string[] allpasswords = new string[Listview.Rows.Count];
+                int counter = 0;
+                foreach (System.Data.DataRow row in Listview.Rows)
+                {
+                    allpasswords[counter] = row.ItemArray[1].ToString();
+                    counter++;
+                    //listBox1.Items.Add(EncryptRSA.DecryptString(row.ItemArray[1].ToString()));
+                }
+                PasswordListView.ItemsSource = allpasswords;
+                if (counter > 0) PasswordListView.SelectedItem = 0;
             }
-            Listview = getSQLData(pidstring);
-            foreach (System.Data.DataRow row in Listview.Rows)
-            {
-                listBox1.Items.Add(EncryptRSA.DecryptString(row.ItemArray[1].ToString()));
-            }
-            if (listBox1.Items.Count > 0) listBox1.SelectedIndex = 0;*/
+                           
         } 
 
 
@@ -78,7 +89,9 @@ namespace PWMan
         private async void DelPW(object sender, EventArgs e)
         {
             //string delete = await DisplayActionSheet("Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "NEIN!", "ja");
-            string delete = await DisplayActionSheet(uid, "NEIN!", "ja");
+            string delete2 = await DisplayActionSheet(deletlog.Rows[0].ItemArray[0].ToString(), "NEIN!", "ja");
+            delete2 = await DisplayActionSheet(deletlog.Rows[1].ItemArray[0].ToString(), "NEIN!", "ja");
+            delete2 = await DisplayActionSheet(deletlog.Rows[2].ItemArray[0].ToString(), "NEIN!", "ja");
             //await DisplayAlert("Passwort löschen!", "Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "Ja");
         }
 

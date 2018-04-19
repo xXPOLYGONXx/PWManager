@@ -23,3 +23,6 @@ C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.NewPW.xaml.g.cs
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.BerechtigungPW.xaml.g.cs
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.ChangePW.xaml.g.cs
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\bin\Debug\netstandard2.0\MySql.Data.CF.dll
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.csprojResolveAssemblyReference.cache
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan\obj\Debug\netstandard2.0\PWMan.csproj.CopyComplete

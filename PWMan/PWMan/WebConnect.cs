@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Data;
 using System.Diagnostics;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace PWMan
 {
@@ -40,7 +42,7 @@ namespace PWMan
 
                     // client.UploadValues returns page's source as byte array (byte[])
                     // so it must be transformed into a string
-                    string pagesource = Encoding.UTF8.GetString(client. client.UploadValues(urlLogin, postData));
+                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(urlLogin, postData));
                     Debug.WriteLine(pagesource);
                     //Console.Read();
                     if (pagesource == "TRUE")
@@ -52,6 +54,39 @@ namespace PWMan
                         return false;
                     }
                 }
+            }     
+            public DataTable FetchToDT(string input)
+            {
+            DataTable sqlreturn = new DataTable();
+            string pattern = "[|]";
+            string newpattern = "[;]";
+            //der input ist dann der return vom webserver(sieht genau so aus)
+            
+            string[] result = Regex.Split(input, pattern);
+            for (int ctr = 0; ctr < result.Length; ctr++)
+            {
+                sqlreturn.Columns.Add(ctr.ToString(), typeof(String));
             }
+            for (int ctr = 0; ctr < result.Length; ctr++)
+            {
+                string[] resultdata = Regex.Split(result[ctr], newpattern);
+                sqlreturn.Rows.Add(resultdata);
+            }
+            return sqlreturn;
+            }
+            public DataTable DBtoDT(string keyword, string parameter)
+            {
+            return FetchToDT(System.Text.Encoding.Default.GetString(DBRequest(keyword, parameter)));
+            }
+            public void PrintDTtoDebug(DataTable dt)
+            {
+            foreach (DataRow dataRow in dt.Rows)
+            {
+                foreach (var item in dataRow.ItemArray)
+                {
+                    Debug.WriteLine(item);
+                }
+            }
+        }
     }
 }

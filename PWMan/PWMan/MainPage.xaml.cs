@@ -8,41 +8,35 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 using System.IO;
 using System.Collections;
+using System.Data;
+using System.Diagnostics;
 
 namespace PWMan
 {
 	public partial class MainPage : ContentPage
 	{
         string uid;
+        string UserID;
         WebConnect Connection = new WebConnect();
         public MainPage(string username)
 		{
 			InitializeComponent();
             getPWList(username);
         }
-
-
-
         private void getPWList(string username)
         {
             PasswordListView.ItemsSource = new string[] { };
 
-            byte[] UID = Connection.DBRequest("Get_Own_Uid",username);
-            //string UserID = System.Text.Encoding.Default.GetString(UID);
-
-
-            private string ByteArrayToString(byte[] arr)
-            {
-                System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
-                return enc.GetString(arr);
-            }
-
-
-            /*DataTable UID = getSQLData("SELECT UID from [dbo].[UserList] where Uname='" + username + "'");
+            byte[] tempbytes = Connection.DBRequest("Get_Own_Uid",username);
+            uid = System.Text.Encoding.Default.GetString(tempbytes);
+            DataTable UID = Connection.FetchToDT(uid);
+            //Testausgabe
+            Connection.PrintDTtoDebug(UID);
             foreach (System.Data.DataRow row in UID.Rows)
             {
                 UserID = row.ItemArray[0].ToString();
             }
+            /*
             DataTable PID = getSQLData("SELECT PID from [dbo].[PWMapping] where UID='" + UserID + "'");
             foreach (System.Data.DataRow row in PID.Rows)
             {
@@ -66,7 +60,7 @@ namespace PWMan
                 listBox1.Items.Add(EncryptRSA.DecryptString(row.ItemArray[1].ToString()));
             }
             if (listBox1.Items.Count > 0) listBox1.SelectedIndex = 0;*/
-        } //Passwörter aus Datenbank laden und in ListBox speichern
+        } 
 
 
         private async void NewPW(object sender, EventArgs e)

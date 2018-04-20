@@ -132,8 +132,8 @@ namespace PWMan
                     }
                     byte[] tmp2 = Connection.DBRequest("Delete_Pw_By_GID", GID.Rows[0].ItemArray[0].ToString());
 
-                    await Navigation.PushAsync(new PWMan.MainPage(username));
-
+                    //await Navigation.PushAsync(new PWMan.MainPage(username));
+                    await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(username)));
                 }
 
             }

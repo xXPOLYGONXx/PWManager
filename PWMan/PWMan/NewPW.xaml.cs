@@ -49,7 +49,7 @@ namespace PWMan
                 GID = GID + 1;
                 Connection.DBRequest("Insert_New_Password_Mapping", "'" + UserID + "', '" + counter.ToString() + "', '" + GID + "'");
 
-                await Navigation.PushAsync(new PWMan.MainPage(MainPageUsername));
+                await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(MainPageUsername)));
                 }
             else
             {

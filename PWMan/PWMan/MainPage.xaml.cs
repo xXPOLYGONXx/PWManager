@@ -106,12 +106,42 @@ namespace PWMan
         }
         private async void DelPW(object sender, EventArgs e)
         {
-            var a = PasswordListView.SelectedItem;
-            //string delete = await DisplayActionSheet("Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "NEIN!", "ja");
-            string delete2 = await DisplayActionSheet(UserID, "NEIN!", "ja");
-            string delete3 = await DisplayActionSheet(username, "NEIN!", "ja");
+            object a = PasswordListView.SelectedItem;
+            List<string> actualPW = new List<string>();
+            IEnumerable enumerable = a as IEnumerable;
+            if (enumerable != null)
+            {
+                foreach (object item in enumerable)
+                {
+                    actualPW.Add(item.ToString());
+                }
+            }
+            if (PasswordListView.SelectedItem != null)
+            {
+                bool result = await DisplayAlert("Ausgewähltes passwort löschen", "Sind Sie sicher, dass Sie dieses Passwort unwiederruflich für alle Nutzer löschen wollen?", "Ja", "NEIN");
 
-            //await DisplayAlert("Passwort löschen!", "Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "Ja");
+                // If the yes button was pressed ...
+                if (result == true)
+                {
+                    DataTable GID = Connection.DBtoDT("Get_GID_By_PID", actualPW[0].ToString());
+                    DataTable Group = Connection.DBtoDT("Get_PID_By_GID_Pwmapping", GID.Rows[0].ItemArray[0].ToString());
+
+                    foreach (System.Data.DataRow row in Group.Rows)
+                    {
+                        byte[] tmp = Connection.DBRequest("Delete_Pw_By_PID", row.ItemArray[0].ToString());
+                    }
+                    byte[] tmp2 = Connection.DBRequest("Delete_Pw_By_GID", GID.Rows[0].ItemArray[0].ToString());
+
+                    await Navigation.PushAsync(new PWMan.MainPage(username));
+
+                }
+
+            }
+            else
+            {
+                await DisplayAlert("Fehler", "Du hast kein Passwort zum löschen ausgewählt!", "Zurück");
+            }
+
         }
 
         private void EditClicked_Share()

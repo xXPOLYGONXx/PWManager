@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 using System.Diagnostics;
@@ -63,14 +64,25 @@ namespace PWMan
             //der input ist dann der return vom webserver(sieht genau so aus)
             
             string[] result = Regex.Split(input, pattern);
-            for (int ctr = 0; ctr < result.Length; ctr++)
+            List<string> resultlist = new List<string>();
+            foreach (string item in result)
+            {
+                resultlist.Add(item);
+            }
+            resultlist.RemoveAt(resultlist.Count-1);
+            resultlist.RemoveAt(0);
+            List<string[]> splittedresults = new List<string[]>();
+            foreach (string Element in resultlist)
+            {
+                splittedresults.Add(Regex.Split(Element, newpattern));
+            }
+            for (int ctr = 0; ctr < splittedresults[0].Length; ctr++)
             {
                 sqlreturn.Columns.Add(ctr.ToString(), typeof(String));
             }
-            for (int ctr = 0; ctr < result.Length; ctr++)
+            foreach (string[] row in splittedresults)
             {
-                string[] resultdata = Regex.Split(result[ctr], newpattern);
-                sqlreturn.Rows.Add(resultdata);
+                sqlreturn.Rows.Add(row);
             }
             return sqlreturn;
             }

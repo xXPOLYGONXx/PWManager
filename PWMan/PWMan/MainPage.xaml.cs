@@ -22,9 +22,10 @@ namespace PWMan
         public List<string> PIDs = new List<string>();
         public List<System.Data.DataRow> PWs;
         WebConnect Connection = new WebConnect();
-        public MainPage(string username)
+        public MainPage(string username_temp)
 		{
 			InitializeComponent();
+            username = username_temp;
             getPWList(username);
         }
         private void getPWList(string username)
@@ -39,10 +40,11 @@ namespace PWMan
             //{
             //    UserID = row.ItemArray[0].ToString();
             //}
+            
 
-            UserID = UID.Rows[1].ItemArray[0].ToString();
-
-
+            UserID = Connection.DBtoDT("Get_Own_Uid", username).Rows[0].ItemArray[0].ToString();
+            //UserID = System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Own_Uid", username));
+            
             DataTable PID = Connection.DBtoDT("Get_Own_Passwords", UserID);
             if (PID.Rows.Count > 0)
             {
@@ -57,6 +59,7 @@ namespace PWMan
                 Listview.Columns.Add("Informationen");
                 foreach (string pid in PIDs)
                 {
+                    //Debug.WriteLine(System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Password_From_ID", pid)));
                     Listview.Rows.Add(Connection.FetchToDT(System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Password_From_ID", pid))).Rows[0].ItemArray);
                 }
                 string[] allpasswords = new string[Listview.Rows.Count];
@@ -75,7 +78,7 @@ namespace PWMan
 
         private async void NewPW(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PWMan.NewPW());
+            await Navigation.PushAsync(new PWMan.NewPW(UserID,username));
         }
         private async void ChangePW(object sender, EventArgs e)
         {
@@ -83,14 +86,22 @@ namespace PWMan
         }
         private async void ChangePWacl(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PWMan.BerechtigungPW());
+            int pid = 0;
+            foreach (DataRow item in Listview.Rows)
+            {
+                if (item.ItemArray[1].ToString() == PasswordListView.SelectedItem.ToString())
+                {
+                    pid = Int32.Parse(item.ItemArray[0].ToString());
+                }
+            }
+            if(pid != 0) await Navigation.PushAsync(new PWMan.BerechtigungPW(pid));
         }
         private async void DelPW(object sender, EventArgs e)
         {
             //string delete = await DisplayActionSheet("Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "NEIN!", "ja");
-            string delete2 = await DisplayActionSheet(deletlog.Rows[0].ItemArray[0].ToString(), "NEIN!", "ja");
-            delete2 = await DisplayActionSheet(deletlog.Rows[1].ItemArray[0].ToString(), "NEIN!", "ja");
-            delete2 = await DisplayActionSheet(deletlog.Rows[2].ItemArray[0].ToString(), "NEIN!", "ja");
+            string delete2 = await DisplayActionSheet(UserID, "NEIN!", "ja");
+            string delete3 = await DisplayActionSheet(username, "NEIN!", "ja");
+
             //await DisplayAlert("Passwort löschen!", "Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "Ja");
         }
 

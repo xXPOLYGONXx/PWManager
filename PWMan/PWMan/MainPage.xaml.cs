@@ -62,16 +62,24 @@ namespace PWMan
                     //Debug.WriteLine(System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Password_From_ID", pid)));
                     Listview.Rows.Add(Connection.FetchToDT(System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Password_From_ID", pid))).Rows[0].ItemArray);
                 }
-                string[] allpasswords = new string[Listview.Rows.Count];
-                int counter = 0;
-                foreach (System.Data.DataRow row in Listview.Rows)
-                {
-                    allpasswords[counter] = row.ItemArray[1].ToString();
-                    counter++;
-                    //listBox1.Items.Add(EncryptRSA.DecryptString(row.ItemArray[1].ToString()));
-                }
+                //string[] allpasswords = new string[Listview.Rows.Count];
+                //int counter = 0;
+                List<string[]> allpasswords =
+                    Listview.Select()
+                        .Select(dr =>
+                            dr.ItemArray
+                                .Select(x => x.ToString())
+                                .ToArray())
+                            .ToList();
+
+                //allpasswords[counter] = row.ItemArray[1].ToString();
+                //counter++;
+                //listBox1.Items.Add(EncryptRSA.DecryptString(row.ItemArray[1].ToString()));
+
                 PasswordListView.ItemsSource = allpasswords;
-                if (counter > 0) PasswordListView.SelectedItem = 0;
+
+                if (allpasswords.Count > 0) PasswordListView.SelectedItem = 0;
+
             }
                            
         } 
@@ -98,6 +106,7 @@ namespace PWMan
         }
         private async void DelPW(object sender, EventArgs e)
         {
+            var a = PasswordListView.SelectedItem;
             //string delete = await DisplayActionSheet("Bist du sicher das du das Passwort bei allen Besitzern löschen möchtest?", "NEIN!", "ja");
             string delete2 = await DisplayActionSheet(UserID, "NEIN!", "ja");
             string delete3 = await DisplayActionSheet(username, "NEIN!", "ja");

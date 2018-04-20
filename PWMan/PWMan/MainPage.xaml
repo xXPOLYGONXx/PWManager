@@ -6,7 +6,16 @@
     <ContentPage.Content>
         <StackLayout Margin="10,20,10,30">
             <Label Text="Liste deiner Passwörter" VerticalOptions="Center" HorizontalOptions="Center" />
-            <ListView x:Name="PasswordListView"/>
+            <ListView x:Name="PasswordListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding [1]}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                      
         </StackLayout>
     </ContentPage.Content>
     <ContentPage.ToolbarItems>

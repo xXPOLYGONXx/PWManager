@@ -232,6 +232,7 @@ C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\an
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\android\assets\PWMan.pdb
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\bin\Debug\PWMan.Android.dll
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\PWMan.pdb
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\PWMan.Android.dll.mdb
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Xamarin.Forms.Core.dll.mdb

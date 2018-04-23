@@ -101,7 +101,7 @@ namespace PWMan
                         actualPW.Add(item.ToString());
                     }
                 }
-                await Navigation.PushAsync(new PWMan.ChangePW(actualPW));
+                await Navigation.PushAsync(new PWMan.ChangePW(actualPW,username));
             }
             else await DisplayAlert("Passwort ändern", "Du musst ein Passwort auswählen...", "Okay");
         }
@@ -144,9 +144,9 @@ namespace PWMan
 
                     foreach (System.Data.DataRow row in Group.Rows)
                     {
-                        byte[] tmp = Connection.DBRequest("Delete_Pw_By_PID", row.ItemArray[0].ToString());
+                        Connection.DBRequest("Delete_Pw_By_PID", row.ItemArray[0].ToString());
                     }
-                    byte[] tmp2 = Connection.DBRequest("Delete_Pw_By_GID", GID.Rows[0].ItemArray[0].ToString());
+                    Connection.DBRequest("Delete_Pw_By_GID", GID.Rows[0].ItemArray[0].ToString());
 
                     //await Navigation.PushAsync(new PWMan.MainPage(username));
                     await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(username)));

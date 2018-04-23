@@ -11,7 +11,9 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
+
                                 <MenuItem Clicked="ShowPW" CommandParameter="{Binding .}" Text="Passwort anzeigen" />
+                                
                             </ViewCell.ContextActions>
                             <Label Text="{Binding [1]}"/>
                         </ViewCell>

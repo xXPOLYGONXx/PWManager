@@ -26,9 +26,9 @@ namespace PWMan
 		{
 			InitializeComponent();
             username = username_temp;
-            getPWList(username);
+            GetPWList(username);
         }
-        private void getPWList(string username)
+        private void GetPWList(string username)
         {
             PasswordListView.ItemsSource = new string[] { };
 
@@ -95,14 +95,19 @@ namespace PWMan
         private async void ChangePWacl(object sender, EventArgs e)
         {
             int pid = 0;
-            foreach (DataRow item in Listview.Rows)
+            object selectedarray = PasswordListView.SelectedItem;
+            List<string> actualData = new List<string>();
+            IEnumerable enumerable = selectedarray as IEnumerable;
+            if (enumerable != null)
             {
-                if (item.ItemArray[1].ToString() == PasswordListView.SelectedItem.ToString())
+                foreach (object item in enumerable)
                 {
-                    pid = Int32.Parse(item.ItemArray[0].ToString());
+                    actualData.Add(item.ToString());
                 }
+                pid = Int32.Parse(actualData[0]);
             }
-            if(pid != 0) await Navigation.PushAsync(new PWMan.BerechtigungPW(pid));
+            if(pid != 0) await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid,username)));
+            else await DisplayAlert("Berechtigungen ändern", "Du musst ein Passwort auswählen...", "Okay");
         }
         private async void DelPW(object sender, EventArgs e)
         {
@@ -143,24 +148,22 @@ namespace PWMan
             }
 
         }
-
-        private async void ShowPW(object sender, ItemTappedEventArgs e)
+        protected async void ShowPW(object sender, EventArgs e)
         {
-            var b = e.Item as string[];
-            object a = PasswordListView.SelectedItem;
-            List<string> actualPW = new List<string>();
-            IEnumerable enumerable = a as IEnumerable;
-            if (enumerable != null)
-            {
-                foreach (object item in enumerable)
-                {
-                    actualPW.Add(item.ToString());
-                }
-            }
-            string Passwd = "PID: " + actualPW[0] + "\nAnwendung: "+ actualPW[1];
+            MenuItem parameters = sender as MenuItem;
+            object itemarray = parameters.CommandParameter;
+             List<string> actualPW = new List<string>();
+             IEnumerable enumerable = itemarray as IEnumerable;
+             if (enumerable != null)
+             {
+                 foreach (object item in enumerable)
+                 {
+                     actualPW.Add(item.ToString());
+                 }
+             }
+            string Passwd = "PID: " + actualPW[0] + "\nAnwendung: " + actualPW[1] + "\nUsername: " + actualPW[2] + "\nPasswort: " + actualPW[3] + "\nzus. Infos: " + actualPW[4];
             await DisplayAlert("Passwort:", Passwd, "Okay");
         }
-
         private void EditClicked_Share()
         {
 

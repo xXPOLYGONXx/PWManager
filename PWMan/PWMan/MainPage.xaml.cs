@@ -90,15 +90,27 @@ namespace PWMan
         }
         private async void ChangePW(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PWMan.ChangePW());
+            if (PasswordListView.SelectedItem.ToString() != "0")
+            {
+                object a = PasswordListView.SelectedItem;
+                List<string> actualPW = new List<string>();
+                if (a is IEnumerable enumerable)
+                {
+                    foreach (object item in enumerable)
+                    {
+                        actualPW.Add(item.ToString());
+                    }
+                }
+                await Navigation.PushAsync(new PWMan.ChangePW(actualPW));
+            }
+            else await DisplayAlert("Passwort ändern", "Du musst ein Passwort auswählen...", "Okay");
         }
         private async void ChangePWacl(object sender, EventArgs e)
         {
             int pid = 0;
             object selectedarray = PasswordListView.SelectedItem;
             List<string> actualData = new List<string>();
-            IEnumerable enumerable = selectedarray as IEnumerable;
-            if (enumerable != null)
+            if (selectedarray is IEnumerable enumerable)
             {
                 foreach (object item in enumerable)
                 {
@@ -106,22 +118,21 @@ namespace PWMan
                 }
                 pid = Int32.Parse(actualData[0]);
             }
-            if(pid != 0) await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid,username)));
+            if (pid != 0) await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid,username)));
             else await DisplayAlert("Berechtigungen ändern", "Du musst ein Passwort auswählen...", "Okay");
         }
         private async void DelPW(object sender, EventArgs e)
         {
             object a = PasswordListView.SelectedItem;
             List<string> actualPW = new List<string>();
-            IEnumerable enumerable = a as IEnumerable;
-            if (enumerable != null)
+            if (a is IEnumerable enumerable)
             {
                 foreach (object item in enumerable)
                 {
                     actualPW.Add(item.ToString());
                 }
             }
-            if (PasswordListView.SelectedItem != null)
+            if (PasswordListView.SelectedItem.ToString() != "0")
             {
                 bool result = await DisplayAlert("Ausgewähltes passwort löschen", "Sind Sie sicher, dass Sie dieses Passwort unwiederruflich für alle Nutzer löschen wollen?", "Ja", "NEIN");
 
@@ -153,25 +164,15 @@ namespace PWMan
             MenuItem parameters = sender as MenuItem;
             object itemarray = parameters.CommandParameter;
              List<string> actualPW = new List<string>();
-             IEnumerable enumerable = itemarray as IEnumerable;
-             if (enumerable != null)
-             {
-                 foreach (object item in enumerable)
-                 {
-                     actualPW.Add(item.ToString());
-                 }
-             }
+            if (itemarray is IEnumerable enumerable)
+            {
+                foreach (object item in enumerable)
+                {
+                    actualPW.Add(item.ToString());
+                }
+            }
             string Passwd = "PID: " + actualPW[0] + "\nAnwendung: " + actualPW[1] + "\nUsername: " + actualPW[2] + "\nPasswort: " + actualPW[3] + "\nzus. Infos: " + actualPW[4];
             await DisplayAlert("Passwort:", Passwd, "Okay");
-        }
-        private void EditClicked_Share()
-        {
-
-        }
-
-        private void EditClicked_Create()
-        {
-
         }
     }
 }

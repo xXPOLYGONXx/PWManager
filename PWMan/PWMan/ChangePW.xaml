@@ -60,13 +60,13 @@
             <!--                          -->
             <BoxView Grid.Row="6"/>
             <StackLayout Grid.Row="6" Padding="0,0,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Button Text="Passwort speichern"/>
+                <Button Clicked="SaveChanges" Text="Passwort speichern"/>
             </StackLayout>
 
             <!--                          -->
             <BoxView Grid.Row="7"/>
             <StackLayout Grid.Row="7" Padding="0,0,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Button Text="abbrechen"/>
+                <Button Clicked="CancelChanges" Text="abbrechen"/>
             </StackLayout>
             <!--                          -->
 

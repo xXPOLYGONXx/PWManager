@@ -61,7 +61,7 @@ namespace PWMan
 
         private async void RemoveAccess(object sender, EventArgs e)
         {
-            if (mitrechte.SelectedItem != null)
+            if (mitrechte.SelectedItem.ToString() != "0")
             {
                if (authcount > 1)
                 {
@@ -92,7 +92,7 @@ namespace PWMan
         private async void AddAccess(object sender, EventArgs e)
         {
             
-            if (ohnerechte.SelectedItem != null)
+            if (ohnerechte.SelectedItem.ToString() != "0")
             {
 
                 string username = ohnerechte.SelectedItem.ToString();

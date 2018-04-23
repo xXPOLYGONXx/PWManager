@@ -144,6 +144,23 @@ namespace PWMan
 
         }
 
+        private async void ShowPW(object sender, ItemTappedEventArgs e)
+        {
+            var b = e.Item as string[];
+            object a = PasswordListView.SelectedItem;
+            List<string> actualPW = new List<string>();
+            IEnumerable enumerable = a as IEnumerable;
+            if (enumerable != null)
+            {
+                foreach (object item in enumerable)
+                {
+                    actualPW.Add(item.ToString());
+                }
+            }
+            string Passwd = "PID: " + actualPW[0] + "\nAnwendung: "+ actualPW[1];
+            await DisplayAlert("Passwort:", Passwd, "Okay");
+        }
+
         private void EditClicked_Share()
         {
 

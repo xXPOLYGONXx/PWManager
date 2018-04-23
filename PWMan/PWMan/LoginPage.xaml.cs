@@ -21,6 +21,7 @@ namespace PWMan
             {
                 if (Connection.CheckLogin(loginname.Text.ToString(), loginpasswd.Text.ToString()))
                 {
+                    //await Navigation.PushAsync(new PWMan.MainPage(loginname.Text.ToString()));
                     await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(loginname.Text.ToString())));
                     //Navigation.RemovePage(Application.Current.MainPage);
                 }

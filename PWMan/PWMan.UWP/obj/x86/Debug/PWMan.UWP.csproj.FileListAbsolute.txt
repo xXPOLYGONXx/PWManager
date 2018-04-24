@@ -588,3 +588,5 @@ C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.UWP\obj\x86\Debug\qu
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.UWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.UWP\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.UWP\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\PCLStorage.Abstractions.dll
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.UWP\bin\x86\Debug\PCLStorage.dll

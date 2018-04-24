@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using PCLStorage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -40,6 +40,21 @@ namespace PWMan
             await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(oldusername)));
             }
             else await DisplayAlert("Passwort ändern", "Bitte gib ein vollständigen Datensatz an.", "Okay");
+        }
+
+        public async Task CreateRealFileAsync()
+        {
+            // get hold of the file system
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+
+            // create a folder, if one does not exist already
+            IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder", CreationCollisionOption.OpenIfExists);
+
+            // create a file, overwriting any existing file
+            IFile file = await folder.CreateFileAsync("MyFile.txt", CreationCollisionOption.ReplaceExisting);
+
+            // populate the file with some text
+            await file.WriteAllTextAsync("Sample Text...");
         }
 
     }

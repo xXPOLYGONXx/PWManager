@@ -159,11 +159,12 @@ namespace PWMan
             }
 
         }
-        protected async void ShowPW(object sender, EventArgs e)
+        protected async void ShowPW(object sender)
         {
-            MenuItem parameters = sender as MenuItem;
-            object itemarray = parameters.CommandParameter;
-             List<string> actualPW = new List<string>();
+            //MenuItem parameters = sender as MenuItem;
+            //object itemarray = parameters.CommandParameter;
+            object itemarray = sender;
+            List<string> actualPW = new List<string>();
             if (itemarray is IEnumerable enumerable)
             {
                 foreach (object item in enumerable)
@@ -173,6 +174,17 @@ namespace PWMan
             }
             string Passwd = "PID: " + actualPW[0] + "\nAnwendung: " + actualPW[1] + "\nUsername: " + actualPW[2] + "\nPasswort: " + actualPW[3] + "\nzus. Infos: " + actualPW[4];
             await DisplayAlert("Passwort:", Passwd, "Okay");
+        }
+        protected async void LongPress(object sender, EventArgs e)
+        {
+            await DisplayAlert("error", sender.ToString(), "kk");
+        }
+        private void OnTAP(object sender, EventArgs e)
+        {
+            ListView lv = sender as ListView;
+            object password = lv.SelectedItem;
+            //PasswordListView.SelectedItem = password;
+            ShowPW(password);
         }
     }
 }

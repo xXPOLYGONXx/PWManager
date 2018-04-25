@@ -27,6 +27,7 @@ namespace PWMan
 
         private async void SaveChanges(object sender, EventArgs e)
         {
+            savebutton.IsEnabled = false;
             if (anwendung.Text != "" && password.Text!= "")
             {
 
@@ -39,7 +40,11 @@ namespace PWMan
             }
             await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(oldusername)));
             }
-            else await DisplayAlert("Passwort ändern", "Bitte gib ein vollständigen Datensatz an.", "Okay");
+            else
+            {
+                await DisplayAlert("Passwort ändern", "Bitte gib ein vollständigen Datensatz an.", "Okay");
+                savebutton.IsEnabled = true;
+            }
         }
 
         public async Task CreateRealFileAsync()

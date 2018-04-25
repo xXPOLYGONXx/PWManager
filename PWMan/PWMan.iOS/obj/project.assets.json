@@ -13,7 +13,7 @@
           "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.dll": {}
         }
       },
-      "Xamarin.Forms/2.5.0.280555": {
+      "Xamarin.Forms/2.5.1.444934": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -163,7 +163,7 @@
           "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.dll": {}
         }
       },
-      "Xamarin.Forms/2.5.0.280555": {
+      "Xamarin.Forms/2.5.1.444934": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -313,7 +313,7 @@
           "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.dll": {}
         }
       },
-      "Xamarin.Forms/2.5.0.280555": {
+      "Xamarin.Forms/2.5.1.444934": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -463,7 +463,7 @@
           "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.dll": {}
         }
       },
-      "Xamarin.Forms/2.5.0.280555": {
+      "Xamarin.Forms/2.5.1.444934": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -648,10 +648,10 @@
         "pclstorage.nuspec"
       ]
     },
-    "Xamarin.Forms/2.5.0.280555": {
-      "sha512": "JVmozDJQNKEVhN4NG5EiG2IBua0+xK9b+t1L/VUN9HeIXkc8BubZM6UnnE1CftlGt0U2+JGTQSL79uxpx0KCpQ==",
+    "Xamarin.Forms/2.5.1.444934": {
+      "sha512": "zDbZeFhh62l6cMG9dXrQ/CSbk+NxKAykeL+JcVxLn//Rx678sCa961F+ib0gqzNHkTmT1K3TPLlJZp5WjvnKVA==",
       "type": "package",
-      "path": "xamarin.forms/2.5.0.280555",
+      "path": "xamarin.forms/2.5.1.444934",
       "files": [
         "build/netstandard1.0/Mono.Cecil.Mdb.dll",
         "build/netstandard1.0/Mono.Cecil.Pdb.dll",
@@ -830,7 +830,7 @@
         "lib/wpa81/Xamarin.Forms.Platform.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.2.5.0.280555.nupkg.sha512",
+        "xamarin.forms.2.5.1.444934.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -844,7 +844,7 @@
     "Xamarin.iOS,Version=v1.0": [
       "PCLStorage >= 1.0.2",
       "PWMan >= 1.0.0",
-      "Xamarin.Forms >= 2.5.0.280555"
+      "Xamarin.Forms >= 2.5.1.444934"
     ]
   },
   "packageFolders": {
@@ -895,7 +895,7 @@
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[2.5.0.280555, )"
+            "version": "[2.5.1.444934, )"
           }
         }
       }
@@ -911,20 +911,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Ein Downgrade des Pakets \"Xamarin.Forms\" von 2.5.1.444934 auf 2.5.0.280555 wurde festgestellt. Verweisen Sie direkt aus dem Projekt auf das Paket, um eine andere Version auszuwählen. \r\n PWMan.iOS -> PWMan -> Xamarin.Forms (>= 2.5.1.444934) \r\n PWMan.iOS -> Xamarin.Forms (>= 2.5.0.280555)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    }
-  ]
+  }
 }

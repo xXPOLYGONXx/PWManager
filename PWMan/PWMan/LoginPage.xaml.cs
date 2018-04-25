@@ -22,18 +22,22 @@ namespace PWMan
             {
                 if (Connection.CheckLogin(loginname.Text.ToString(), loginpasswd.Text.ToString()))
                 {
-                    //await Navigation.PushAsync(new PWMan.MainPage(loginname.Text.ToString()));
-                    await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(loginname.Text.ToString())));
-                    //Navigation.RemovePage(Application.Current.MainPage);
+                    Navigation.InsertPageBefore(new PWMan.MainPage(loginname.Text.ToString()), this);
+                    await Navigation.PopAsync();
+                    //await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(loginname.Text.ToString())));
                 }
                 else
                 {
                     await DisplayAlert("Login Fehler", "Du hast falsche Logindaten eingegeben!", "Versuchs nochmal");
+                    loginbutton.IsEnabled = true;
+
                 }
             }
             else
             {
                 await DisplayAlert("Login Fehler", "Du hast nicht alle Logindaten eingegeben!", "Versuchs nochmal");
+                loginbutton.IsEnabled = true;
+
             }
         }
     }

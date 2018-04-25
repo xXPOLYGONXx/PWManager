@@ -60,7 +60,7 @@
             <!--                          -->
             <BoxView Grid.Row="6"/>
             <StackLayout Grid.Row="6" Padding="0,0,15,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Button Clicked="SaveChanges" Text="Passwort speichern"/>
+                <Button x:Name="savebutton" Clicked="SaveChanges" Text="Passwort speichern"/>
             </StackLayout>
 
             <!--                          -->

@@ -63,7 +63,9 @@ namespace PWMan
         {
             if (mitrechte.SelectedItem != null)
             {
-               if (authcount > 1)
+                addaccess.IsEnabled = false;
+                removeaccess.IsEnabled = false;
+                if (authcount > 1)
                 {
                     string UserID = Connection.DBtoDT("Get_Own_Uid", mitrechte.SelectedItem.ToString()).Rows[0].ItemArray[0].ToString();
                     DataTable PID = Connection.DBtoDT("Get_Own_Passwords", UserID);
@@ -85,6 +87,8 @@ namespace PWMan
                 {
                     await DisplayAlert("Rechte entziehen", "Es muss ein User mit Rechten verbleiben!", "Okay");
                 }
+                addaccess.IsEnabled = true;
+                removeaccess.IsEnabled = true;
             }
             else await DisplayAlert("Rechte entziehen", "Wem sollen die Rechte entzogen werden???", "Ich wähle jemanden aus...");
         }
@@ -94,7 +98,8 @@ namespace PWMan
             
             if (ohnerechte.SelectedItem != null)
             {
-
+                addaccess.IsEnabled = false;
+                removeaccess.IsEnabled = false;
                 string username = ohnerechte.SelectedItem.ToString();
                 DataTable PCount = Connection.DBtoDT("Get_PID", "");//list_pid
                 int counter = 0;
@@ -110,6 +115,8 @@ namespace PWMan
                 Connection.DBRequest("Insert_New_Password_Mapping", "'" + UID + "', '" + counter.ToString() + "', '" + gid + "'");
 
                 await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid, uname)));
+                addaccess.IsEnabled = true;
+                removeaccess.IsEnabled = true;
             }
             else await DisplayAlert("Rechte erteilen", "Wer soll denn Rechte erhalten???", "Ich wähle jemanden aus...");
 

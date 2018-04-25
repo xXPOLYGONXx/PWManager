@@ -84,7 +84,6 @@ namespace PWMan
             }
                            
         } 
-
         private async void NewPW(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PWMan.NewPW(UserID,username));
@@ -160,7 +159,7 @@ namespace PWMan
             }
 
         }
-        protected async void ShowPW(object sender)
+        protected void ShowPW(object sender)
         {
             //MenuItem parameters = sender as MenuItem;
             //object itemarray = parameters.CommandParameter;

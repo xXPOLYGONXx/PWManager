@@ -16,6 +16,7 @@ namespace PWMan
 
         private async void Login_Clicked(object sender, EventArgs e)
         {
+            loginbutton.IsEnabled = false;
             //await DisplayAlert("Ausgabe", loginname.Text.ToString(), loginpasswd.Text.ToString());
             if (loginname.Text != null && loginpasswd.Text != null)
             {

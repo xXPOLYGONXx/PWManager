@@ -27,6 +27,7 @@ namespace PWMan
 			InitializeComponent();
             username = username_temp;
             GetPWList(username);
+            tableview.IsVisible = false;
         }
         private void GetPWList(string username)
         {
@@ -173,7 +174,17 @@ namespace PWMan
                 }
             }
             string Passwd = "PID: " + actualPW[0] + "\nAnwendung: " + actualPW[1] + "\nUsername: " + actualPW[2] + "\nPasswort: " + actualPW[3] + "\nzus. Infos: " + actualPW[4];
-            await DisplayAlert("Passwort:", Passwd, "Okay");
+            tableview.IsVisible = true;
+            anwlinks.Text = "Anwendung:";
+            passlinks.Text = "Passwort:";
+            infolinks.Text = "Informationen:";
+            namelinks.Text = "Username:";
+            anwrechts.Text = actualPW[1];
+            passrechts.Text = actualPW[3];
+            inforechts.Text = actualPW[4];
+            namerechts.Text = actualPW[2];
+
+            //await DisplayAlert("Passwort:", Passwd, "Okay");
         }
         protected async void LongPress(object sender, EventArgs e)
         {

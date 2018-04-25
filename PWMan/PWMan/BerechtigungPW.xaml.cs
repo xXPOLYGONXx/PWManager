@@ -61,7 +61,7 @@ namespace PWMan
 
         private async void RemoveAccess(object sender, EventArgs e)
         {
-            if (mitrechte.SelectedItem.ToString() != "0")
+            if (mitrechte.SelectedItem != null)
             {
                if (authcount > 1)
                 {
@@ -92,7 +92,7 @@ namespace PWMan
         private async void AddAccess(object sender, EventArgs e)
         {
             
-            if (ohnerechte.SelectedItem.ToString() != "0")
+            if (ohnerechte.SelectedItem != null)
             {
 
                 string username = ohnerechte.SelectedItem.ToString();
@@ -118,6 +118,22 @@ namespace PWMan
         private async void GoBack(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(uname)));
+        }
+
+        private void FirstSelected(object sender, EventArgs e)
+        {
+            if (ohnerechte.SelectedItem.ToString() != "0")
+            {
+                mitrechte.SelectedItem = 0;
+            }
+        }
+
+        private void SecondSelected(object sender, EventArgs e)
+        {
+            if (mitrechte.SelectedItem.ToString() != "0")
+            {
+                ohnerechte.SelectedItem = 0;
+            }
         }
     }
 }

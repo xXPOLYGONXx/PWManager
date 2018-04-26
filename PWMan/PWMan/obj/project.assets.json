@@ -86,6 +86,17 @@
           "build/netstandard1.0/Xamarin.Forms.props": {},
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
+      },
+      "Xamarin.Plugins.Clipboard/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/Plugin.Clipboard.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Clipboard.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Clipboard.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Clipboard.dll": {}
+        }
       }
     }
   },
@@ -620,13 +631,49 @@
         "xamarin.forms.2.5.1.444934.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
+    },
+    "Xamarin.Plugins.Clipboard/2.2.1": {
+      "sha512": "+CxPFOQqy/UA/XuXUhz5Ktr4C2rLh4QpYouDX8VM4CDvtr9cN9SLsCIJ5IZvn5ufcQPla8ABPCe+nE/qUF423A==",
+      "type": "package",
+      "path": "xamarin.plugins.clipboard/2.2.1",
+      "files": [
+        "lib/MonoAndroid10/Plugin.Clipboard.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Clipboard.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Clipboard.XML",
+        "lib/MonoAndroid10/Plugin.Clipboard.dll",
+        "lib/MonoAndroid10/Plugin.Clipboard.pdb",
+        "lib/UAP10/Plugin.Clipboard.Abstractions.dll",
+        "lib/UAP10/Plugin.Clipboard.Abstractions.pdb",
+        "lib/UAP10/Plugin.Clipboard.XML",
+        "lib/UAP10/Plugin.Clipboard.dll",
+        "lib/UAP10/Plugin.Clipboard.pdb",
+        "lib/UAP10/Plugin.Clipboard.pri",
+        "lib/Xamarin.Mac20/Plugin.Clipboard.Abstractions.dll",
+        "lib/Xamarin.Mac20/Plugin.Clipboard.Abstractions.pdb",
+        "lib/Xamarin.Mac20/Plugin.Clipboard.dll",
+        "lib/Xamarin.iOS10/Plugin.Clipboard.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Clipboard.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Clipboard.XML",
+        "lib/Xamarin.iOS10/Plugin.Clipboard.dll",
+        "lib/net461/Plugin.Clipboard.Abstractions.dll",
+        "lib/net461/Plugin.Clipboard.Abstractions.pdb",
+        "lib/net461/Plugin.Clipboard.dll",
+        "lib/netstandard1.0/Plugin.Clipboard.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Clipboard.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Clipboard.deps.json",
+        "lib/netstandard1.0/Plugin.Clipboard.dll",
+        "lib/netstandard1.0/Plugin.Clipboard.pdb",
+        "xamarin.plugins.clipboard.2.2.1.nupkg.sha512",
+        "xamarin.plugins.clipboard.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.1",
       "PCLStorage >= 1.0.2",
-      "Xamarin.Forms >= 2.5.1.444934"
+      "Xamarin.Forms >= 2.5.1.444934",
+      "Xamarin.Plugins.Clipboard >= 2.2.1"
     ]
   },
   "packageFolders": {
@@ -637,11 +684,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj",
+      "projectUniqueName": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\PWMan.csproj",
       "projectName": "PWMan",
-      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj",
+      "projectPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\PWMan.csproj",
       "packagesPath": "C:\\Users\\jamie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\obj\\",
+      "outputPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
@@ -686,6 +733,10 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[2.5.1.444934, )"
+          },
+          "Xamarin.Plugins.Clipboard": {
+            "target": "Package",
+            "version": "[2.2.1, )"
           }
         },
         "imports": [

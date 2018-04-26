@@ -110,6 +110,8 @@ class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"PCLStorage.Abstractions.dll",
 		"PCLStorage.dll",
+		"Plugin.Clipboard.Abstractions.dll",
+		"Plugin.Clipboard.dll",
 		"PWMan.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",

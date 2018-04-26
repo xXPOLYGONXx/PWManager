@@ -280,10 +280,16 @@ C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\ob
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\android\assets\System.Web.Services.pdb
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\android\assets\System.Xml.Linq.pdb
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\android\assets\System.Xml.pdb
-C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\bin\Debug\PWMan.Android.dll
-C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\PWMan.pdb
-C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\PWMan.Android.dll.mdb
-C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
-C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Xamarin.Forms.Core.dll.mdb
-C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb
-C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\bin\Debug\Plugin.Clipboard.Abstractions.pdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Plugin.Clipboard.Abstractions.pdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\bin\Debug\Plugin.Clipboard.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Plugin.Clipboard.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\android\assets\Plugin.Clipboard.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\android\assets\Plugin.Clipboard.Abstractions.pdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\bin\Debug\PWMan.Android.dll
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\PWMan.Android.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Plugin.Clipboard.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Xamarin.Forms.Core.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\jamie\OneDrive\Dokumente\Git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Xamarin.Forms.Xaml.dll.mdb

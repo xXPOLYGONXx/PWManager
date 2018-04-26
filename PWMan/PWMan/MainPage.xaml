@@ -18,28 +18,28 @@
             <TableView x:Name="tableview">
                 <TableRoot>
                     <TableSection Title="Ausgewähltes Passwort">
-                        <ViewCell>
+                        <ViewCell Tapped="CopyPassword">
                             <StackLayout Orientation="Horizontal">
                                 <Label x:Name="anwlinks" Text=""/>
-                                <Entry x:Name="anwrechts" Text="" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="anwrechts" Text="" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
-                        <ViewCell>
+                        <ViewCell Tapped="CopyPassword">
                             <StackLayout Orientation="Horizontal">
                                 <Label x:Name="namelinks" Text=""/>
-                                <Entry x:Name="namerechts" Text="" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="namerechts" Text="" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
-                        <ViewCell>
+                        <ViewCell Tapped="CopyPassword">
                             <StackLayout Orientation="Horizontal">
                                 <Label x:Name="passlinks" Text=""/>
-                                <Entry x:Name="passrechts" Text="" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="passrechts" Text="" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
-                        <ViewCell>
+                        <ViewCell Tapped="CopyPassword">
                             <StackLayout Orientation="Horizontal">
                                 <Label x:Name="infolinks" Text=""/>
-                                <Entry x:Name="inforechts" Text="" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="inforechts" Text="" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
                     </TableSection>

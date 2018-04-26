@@ -10,6 +10,7 @@ using System.IO;
 using System.Collections;
 using System.Data;
 using System.Diagnostics;
+using Plugin.Clipboard;
 
 namespace PWMan
 {
@@ -199,6 +200,11 @@ namespace PWMan
             object password = lv.SelectedItem;
             //PasswordListView.SelectedItem = password;
             ShowPW(password);
+        }
+        private async void CopyPassword(object sender, EventArgs e)
+        {
+            CrossClipboard.Current.SetText(passrechts.Text);
+            await DisplayAlert("Passwort kopiert", "Das Passwort wurde in deiner Zwischenablage gespeichert.", "super!");
         }
     }
 }

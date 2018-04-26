@@ -30,3 +30,5 @@ netstandard
 System.Resources.ResourceManager
 System.ComponentModel
 System.Reflection.Extensions
+Plugin.Clipboard.Abstractions
+Plugin.Clipboard

@@ -352,12 +352,24 @@
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Plugins.Clipboard/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/Plugin.Clipboard.Abstractions.dll": {},
+          "lib/MonoAndroid10/Plugin.Clipboard.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Plugin.Clipboard.Abstractions.dll": {},
+          "lib/MonoAndroid10/Plugin.Clipboard.dll": {}
+        }
+      },
       "PWMan/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "PCLStorage": "1.0.2",
-          "Xamarin.Forms": "2.5.1.444934"
+          "Xamarin.Forms": "2.5.1.444934",
+          "Xamarin.Plugins.Clipboard": "2.2.1"
         },
         "compile": {
           "bin/placeholder/PWMan.dll": {}
@@ -832,6 +844,41 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "Xamarin.Plugins.Clipboard/2.2.1": {
+      "sha512": "+CxPFOQqy/UA/XuXUhz5Ktr4C2rLh4QpYouDX8VM4CDvtr9cN9SLsCIJ5IZvn5ufcQPla8ABPCe+nE/qUF423A==",
+      "type": "package",
+      "path": "xamarin.plugins.clipboard/2.2.1",
+      "files": [
+        "lib/MonoAndroid10/Plugin.Clipboard.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Clipboard.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Clipboard.XML",
+        "lib/MonoAndroid10/Plugin.Clipboard.dll",
+        "lib/MonoAndroid10/Plugin.Clipboard.pdb",
+        "lib/UAP10/Plugin.Clipboard.Abstractions.dll",
+        "lib/UAP10/Plugin.Clipboard.Abstractions.pdb",
+        "lib/UAP10/Plugin.Clipboard.XML",
+        "lib/UAP10/Plugin.Clipboard.dll",
+        "lib/UAP10/Plugin.Clipboard.pdb",
+        "lib/UAP10/Plugin.Clipboard.pri",
+        "lib/Xamarin.Mac20/Plugin.Clipboard.Abstractions.dll",
+        "lib/Xamarin.Mac20/Plugin.Clipboard.Abstractions.pdb",
+        "lib/Xamarin.Mac20/Plugin.Clipboard.dll",
+        "lib/Xamarin.iOS10/Plugin.Clipboard.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Clipboard.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Clipboard.XML",
+        "lib/Xamarin.iOS10/Plugin.Clipboard.dll",
+        "lib/net461/Plugin.Clipboard.Abstractions.dll",
+        "lib/net461/Plugin.Clipboard.Abstractions.pdb",
+        "lib/net461/Plugin.Clipboard.dll",
+        "lib/netstandard1.0/Plugin.Clipboard.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Clipboard.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Clipboard.deps.json",
+        "lib/netstandard1.0/Plugin.Clipboard.dll",
+        "lib/netstandard1.0/Plugin.Clipboard.pdb",
+        "xamarin.plugins.clipboard.2.2.1.nupkg.sha512",
+        "xamarin.plugins.clipboard.nuspec"
+      ]
+    },
     "PWMan/1.0.0": {
       "type": "project",
       "path": "../PWMan/PWMan.csproj",
@@ -857,11 +904,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.Android\\PWMan.Android.csproj",
+      "projectUniqueName": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.Android\\PWMan.Android.csproj",
       "projectName": "PWMan.Android",
-      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.Android\\PWMan.Android.csproj",
+      "projectPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.Android\\PWMan.Android.csproj",
       "packagesPath": "C:\\Users\\jamie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.Android\\obj\\",
+      "outputPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -882,8 +929,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
-              "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
+            "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
+              "projectPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
             }
           }
         }

@@ -293,6 +293,7 @@ C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\ob
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Plugin.Clipboard.dll.mdb
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Plugin.Clipboard.Abstractions.pdb
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\bin\Debug\PWMan.Android.dll
+C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\PWMan.pdb
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\PWMan.Android.dll.mdb
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\jamie\Documents\Visual Studio 2017\git\PWManager\PWMan\PWMan.Android\obj\Debug\linksrc\Plugin.Clipboard.dll.mdb

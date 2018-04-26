@@ -14,7 +14,8 @@ namespace PWMan
 	{
         WebConnect Connection = new WebConnect();
         string pid, oldusername;
-		public ChangePW(List<string> olddata,string temp_username)
+        PWMan.MainPage lastpage;
+		public ChangePW(List<string> olddata,string temp_username,PWMan.MainPage lastSite)
 		{
 			InitializeComponent();
             anwendung.Text = olddata[1];
@@ -23,6 +24,7 @@ namespace PWMan
             information.Text = olddata[4];
             pid = olddata[0];
             oldusername = temp_username;
+            lastpage = lastSite;
         }
 
         private async void SaveChanges(object sender, EventArgs e)
@@ -38,12 +40,12 @@ namespace PWMan
                 string updatestr = "PID='" + pid + "', Anwendung='" + anwendung.Text + "', Username='" + username.Text + "', Passwort='" + password.Text + "', Informationen='" + information.Text + "' WHERE PID='" + pid +"'";
                 Connection.DBRequest("Update_Pw_By_PID", updatestr);
             }
-                //await Task.Run(() => Navigation.InsertPageBefore(new PWMan.MainPage(oldusername), this));
-                Navigation.InsertPageBefore(new PWMan.MainPage(oldusername), this);
-                //await DisplayAlert("Passwort öndern", "Passwort wurde gespeichert.", "Super!");
+
+                //Navigation.InsertPageBefore(new PWMan.MainPage(oldusername), this);
+                //await Navigation.PopToRootAsync();
+                lastpage.GetPWList(oldusername);
                 await Navigation.PopAsync();
-                
-                //await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(oldusername)));
+             
             }
             else
             {

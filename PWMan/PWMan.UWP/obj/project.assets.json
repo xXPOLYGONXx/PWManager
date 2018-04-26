@@ -7016,11 +7016,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.UWP\\PWMan.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.UWP\\PWMan.UWP.csproj",
       "projectName": "PWMan.UWP",
-      "projectPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.UWP\\PWMan.UWP.csproj",
+      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.UWP\\PWMan.UWP.csproj",
       "packagesPath": "C:\\Users\\jamie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.UWP\\obj\\",
+      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -7042,8 +7042,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
-              "projectPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
+            "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
+              "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
             }
           }
         }

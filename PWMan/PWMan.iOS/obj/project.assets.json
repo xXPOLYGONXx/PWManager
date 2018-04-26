@@ -854,11 +854,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.iOS\\PWMan.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.iOS\\PWMan.iOS.csproj",
       "projectName": "PWMan.iOS",
-      "projectPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.iOS\\PWMan.iOS.csproj",
+      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.iOS\\PWMan.iOS.csproj",
       "packagesPath": "C:\\Users\\jamie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan.iOS\\obj\\",
+      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -879,8 +879,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
-              "projectPath": "C:\\Users\\jamie\\OneDrive\\Dokumente\\Git\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
+            "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
+              "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
             }
           }
         }

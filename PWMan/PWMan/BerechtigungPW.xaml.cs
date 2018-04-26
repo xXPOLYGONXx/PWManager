@@ -61,7 +61,8 @@ namespace PWMan
 
         private async void RemoveAccess(object sender, EventArgs e)
         {
-            if (mitrechte.SelectedItem != null)
+
+            if (mitrechte.SelectedItem != null && mitrechte.SelectedItem.ToString() != "0")
             {
                 addaccess.IsEnabled = false;
                 removeaccess.IsEnabled = false;
@@ -81,7 +82,9 @@ namespace PWMan
                     }
                     authcount--;
                     deauthcount++;
-                    await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid,uname)));
+                    Navigation.InsertPageBefore(new PWMan.BerechtigungPW(pid, uname), this);
+                    await Navigation.PopAsync();
+                    //await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid,uname)));
                 }
                 else
                 {
@@ -96,7 +99,7 @@ namespace PWMan
         private async void AddAccess(object sender, EventArgs e)
         {
             
-            if (ohnerechte.SelectedItem != null)
+            if (ohnerechte.SelectedItem != null && ohnerechte.SelectedItem.ToString() != "0")
             {
                 addaccess.IsEnabled = false;
                 removeaccess.IsEnabled = false;
@@ -114,9 +117,12 @@ namespace PWMan
                 Connection.DBRequest("Insert_New_Password", "'" + counter.ToString() + "' ,'" + PassInfo.Rows[0].ItemArray[1].ToString() + "' ,'" + PassInfo.Rows[0].ItemArray[2].ToString() + "', '" + PassInfo.Rows[0].ItemArray[3].ToString() + "', '" + PassInfo.Rows[0].ItemArray[4].ToString() + "'");//insert_pwd
                 Connection.DBRequest("Insert_New_Password_Mapping", "'" + UID + "', '" + counter.ToString() + "', '" + gid + "'");
 
-                await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid, uname)));
+                Navigation.InsertPageBefore(new PWMan.BerechtigungPW(pid, uname), this);
                 addaccess.IsEnabled = true;
                 removeaccess.IsEnabled = true;
+                await Navigation.PopAsync();
+                //await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid, uname)));
+                
             }
             else await DisplayAlert("Rechte erteilen", "Wer soll denn Rechte erhalten???", "Ich wähle jemanden aus...");
 
@@ -124,7 +130,9 @@ namespace PWMan
 
         private async void GoBack(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(uname)));
+            Navigation.InsertPageBefore(new PWMan.MainPage(uname), this);
+            await Navigation.PopAsync();
+            //await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(uname)));
         }
 
         private void FirstSelected(object sender, EventArgs e)

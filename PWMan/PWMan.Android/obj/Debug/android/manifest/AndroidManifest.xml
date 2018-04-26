@@ -19,6 +19,5 @@
         <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.PWMan" />
       </intent-filter>
     </receiver>
-    <meta-data android:name="android.support.VERSION" android:value="25.4.0" />
   </application>
 </manifest>

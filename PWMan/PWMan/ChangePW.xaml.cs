@@ -38,7 +38,12 @@ namespace PWMan
                 string updatestr = "PID='" + pid + "', Anwendung='" + anwendung.Text + "', Username='" + username.Text + "', Passwort='" + password.Text + "', Informationen='" + information.Text + "' WHERE PID='" + pid +"'";
                 Connection.DBRequest("Update_Pw_By_PID", updatestr);
             }
-            await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(oldusername)));
+                //await Task.Run(() => Navigation.InsertPageBefore(new PWMan.MainPage(oldusername), this));
+                Navigation.InsertPageBefore(new PWMan.MainPage(oldusername), this);
+                //await DisplayAlert("Passwort öndern", "Passwort wurde gespeichert.", "Super!");
+                await Navigation.PopAsync();
+                
+                //await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(oldusername)));
             }
             else
             {
@@ -46,21 +51,5 @@ namespace PWMan
                 savebutton.IsEnabled = true;
             }
         }
-
-        public async Task CreateRealFileAsync()
-        {
-            // get hold of the file system
-            IFolder rootFolder = FileSystem.Current.LocalStorage;
-
-            // create a folder, if one does not exist already
-            IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder", CreationCollisionOption.OpenIfExists);
-
-            // create a file, overwriting any existing file
-            IFile file = await folder.CreateFileAsync("MyFile.txt", CreationCollisionOption.ReplaceExisting);
-
-            // populate the file with some text
-            await file.WriteAllTextAsync("Sample Text...");
-        }
-
     }
 }

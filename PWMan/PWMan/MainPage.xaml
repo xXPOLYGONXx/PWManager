@@ -21,25 +21,25 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label x:Name="anwlinks" Text=""/>
-                                <Label x:Name="anwrechts" Text="" HorizontalOptions="EndAndExpand"/>
+                                <Entry x:Name="anwrechts" Text="" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label x:Name="namelinks" Text=""/>
-                                <Label x:Name="namerechts" Text="" HorizontalOptions="EndAndExpand"/>
+                                <Entry x:Name="namerechts" Text="" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label x:Name="passlinks" Text=""/>
-                                <Label x:Name="passrechts" Text="" HorizontalOptions="EndAndExpand"/>
+                                <Entry x:Name="passrechts" Text="" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label x:Name="infolinks" Text=""/>
-                                <Label x:Name="inforechts" Text="" HorizontalOptions="EndAndExpand"/>
+                                <Entry x:Name="inforechts" Text="" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
                     </TableSection>

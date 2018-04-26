@@ -22,10 +22,11 @@ namespace PWMan
         public List<string> PIDs = new List<string>();
         public List<System.Data.DataRow> PWs;
         WebConnect Connection = new WebConnect();
-        public MainPage(string username_temp)
-		{
+        
+        public MainPage(string temp_username)
+        {
 			InitializeComponent();
-            username = username_temp;
+            username = temp_username;
             GetPWList(username);
             tableview.IsVisible = false;
         }
@@ -149,7 +150,10 @@ namespace PWMan
                     Connection.DBRequest("Delete_Pw_By_GID", GID.Rows[0].ItemArray[0].ToString());
 
                     //await Navigation.PushAsync(new PWMan.MainPage(username));
-                    await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(username)));
+                    //await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(username)));
+
+                    Navigation.InsertPageBefore(new PWMan.MainPage(username), this);
+                    await Navigation.PopAsync();
                 }
 
             }

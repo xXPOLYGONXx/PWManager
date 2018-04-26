@@ -49,8 +49,11 @@ namespace PWMan
                 GID = GID + 1;
                 Connection.DBRequest("Insert_New_Password_Mapping", "'" + UserID + "', '" + counter.ToString() + "', '" + GID + "'");
                 savebutton.IsEnabled = false;
-                await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(MainPageUsername)));
-                }
+                Navigation.InsertPageBefore(new PWMan.MainPage(MainPageUsername), this);
+                //await DisplayAlert("Passwort anlegen", "Dein Passwort wurde gespeichert.", "Super!");
+                await Navigation.PopAsync();
+                //await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(MainPageUsername)));
+            }
             else
             {
                 await DisplayAlert("Unzureichende Eingaben", "Bitte alle nötigen Werte aufüllen!", "Versuchs nochmal");

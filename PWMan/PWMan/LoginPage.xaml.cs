@@ -23,6 +23,7 @@ namespace PWMan
                 if (Connection.CheckLogin(loginname.Text.ToString(), loginpasswd.Text.ToString()))
                 {
                     Navigation.InsertPageBefore(new PWMan.MainPage(loginname.Text.ToString()), this);
+                    //ARBEITE
                     await Navigation.PopAsync();
                     //await Navigation.PushModalAsync(new NavigationPage(new PWMan.MainPage(loginname.Text.ToString())));
                 }

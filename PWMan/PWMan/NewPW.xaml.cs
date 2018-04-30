@@ -17,16 +17,20 @@ namespace PWMan
         }
         private async void Pwd_Save_Clicked(object sender, EventArgs e)                                                                                     //Save the new password
         {
+            int counter = 0;
             if (anwendung.Text != null && password.Text != null)                                                                                            //The least of input
             {
-                savebutton.IsEnabled = false;                                                                                                               //Block Userinput
-                DataTable PCount = Connection.DBtoDT("Get_PID", "");                                                                                        //list all PIDs to calculate the next higher one
-                int counter = 0;
-                foreach (System.Data.DataRow row in PCount.Rows)
+                byte[] tmp = Connection.DBRequest("Get_PID", "");
+                if (tmp.Length != 0)
                 {
-                    if (row.ItemArray[0].ToString() != "")
+                    savebutton.IsEnabled = false;                                                                                                               //Block Userinput
+                    DataTable PCount = Connection.DBtoDT("Get_PID", "");                                                                                        //list all PIDs to calculate the next higher one
+                    foreach (System.Data.DataRow row in PCount.Rows)
                     {
-                        if (Int32.Parse(row.ItemArray[0].ToString()) > counter) counter = Int32.Parse(row.ItemArray[0].ToString());
+                        if (row.ItemArray[0].ToString() != "")
+                        {
+                            if (Int32.Parse(row.ItemArray[0].ToString()) > counter) counter = Int32.Parse(row.ItemArray[0].ToString());
+                        }
                     }
                 }
                 counter++;

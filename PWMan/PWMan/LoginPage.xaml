@@ -7,6 +7,7 @@
             <Entry x:Name="loginname" Placeholder="Login Name"/>
             <Entry x:Name="loginpasswd" Placeholder="Passwort" IsPassword="True"/>
             <Button x:Name="loginbutton" Text="Login" Clicked="Login_Clicked"/>
+            <Button x:Name="registrationbutton" Text="Registrieren" Clicked="Registration_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

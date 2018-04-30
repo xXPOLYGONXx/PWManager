@@ -12,6 +12,8 @@ namespace PWMan
     {
             private string url = "http://mrbeats.zapto.org:2622/dbrequest.php";                                     //Raspi 3
             private string urlLogin = "http://mrbeats.zapto.org:2622/checklogin.php";
+            private string urlCreateCert = "http://mrbeats.zapto.org:2622/createCert.php";
+            private string urlGetCertTemplate = "http://mrbeats.zapto.org:2622/getCert.php?filename=";
 
             public byte[] DBRequest(string keyword, string parameter)                                               //simple DB Request
             {
@@ -79,5 +81,26 @@ namespace PWMan
             {
             return FetchToDT(System.Text.Encoding.Default.GetString(DBRequest(keyword, parameter)));
             }
+            public byte[] CreateCert(string UID, string username)
+        {
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                    {
+                        { "UID", UID },
+                        { "Username", username }       //order: {"parameter name", "parameter value"}
+                                                           //DB Statement, dass an den Webserver geschickt wird
+                    };
+                return client.UploadValues(urlCreateCert, postData);
+                // client.UploadValues returns page's source as byte array (byte[])
+                // so it must be transformed into a string     
+            }
+        }
+            public void GetCertFile(string URLFilename, string path)
+        {
+            string urlGetCert = urlGetCertTemplate + URLFilename;
+            WebClient client = new WebClient();
+            client.DownloadFile(urlGetCert, path);
+        }
     }
 }

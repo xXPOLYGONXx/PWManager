@@ -24,36 +24,42 @@ namespace PWMan
         private         List<string[]> GetPassasList(string username)     //Get passwordlist from webserver
         {
             //variables
+            List<string[]> passwordlist;
             DataTable Listview = new DataTable();
-            DataTable PID = Connection.DBtoDT("Get_Own_Passwords", UserID); //Gets all passwords from one user
-            List<string> passwordnamelist = new List<string>();
-            //
-            Listview.Columns.Add("PID");
-            Listview.Columns.Add("Anwendung");
-            Listview.Columns.Add("Username");
-            Listview.Columns.Add("Passwort");
-            Listview.Columns.Add("Informationen");
-            if (PID.Rows.Count > 0) //convert data to List
+            byte[] tmp = Connection.DBRequest("Get_Own_Passwords", UserID);
+            if (tmp.Length != 0)
             {
-                foreach (System.Data.DataRow row in PID.Rows)
+                DataTable PID = Connection.DBtoDT("Get_Own_Passwords", UserID); //Gets all passwords from one user
+                List<string> passwordnamelist = new List<string>();
+                //
+                Listview.Columns.Add("PID");
+                Listview.Columns.Add("Anwendung");
+                Listview.Columns.Add("Username");
+                Listview.Columns.Add("Passwort");
+                Listview.Columns.Add("Informationen");
+                if (PID.Rows.Count > 0) //convert data to List
                 {
-                    passwordnamelist.Add(row.ItemArray[0].ToString());
+                    foreach (System.Data.DataRow row in PID.Rows)
+                    {
+                        passwordnamelist.Add(row.ItemArray[0].ToString());
+                    }
+                    Listview.Rows.Clear();
+                    foreach (string pid in passwordnamelist)
+                    {
+                        Listview.Rows.Add(Connection.FetchToDT(System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Password_From_ID", pid))).Rows[0].ItemArray);
+                    }
+
                 }
-                Listview.Rows.Clear();
-                foreach (string pid in passwordnamelist)
-                {
-                    Listview.Rows.Add(Connection.FetchToDT(System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Password_From_ID", pid))).Rows[0].ItemArray);
-                }
-                
+                //Parse Datatable to List<string[]>
+                passwordlist =
+                        Listview.Select()
+                            .Select(dr =>
+                                dr.ItemArray
+                                    .Select(x => x.ToString())
+                                    .ToArray())
+                                .ToList();
             }
-            //Parse Datatable to List<string[]>
-            List<string[]> passwordlist =
-                    Listview.Select()
-                        .Select(dr =>
-                            dr.ItemArray
-                                .Select(x => x.ToString())
-                                .ToArray())
-                            .ToList();
+            else passwordlist = new List<string[]>();
             return passwordlist;
         }
         public          void GetPWList(string username)                   //Fill Listview with data

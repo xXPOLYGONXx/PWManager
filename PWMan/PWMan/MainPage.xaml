@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout Margin="10,20,10,30">
             <Label Text="Liste deiner Passwörter" VerticalOptions="Center" HorizontalOptions="Center" />
-            <ListView x:Name="PasswordListView">
+            <ListView ItemTapped="OnTAP" x:Name="PasswordListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -15,14 +15,43 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-                      
+            <TableView x:Name="tableview">
+                <TableRoot>
+                    <TableSection Title="Ausgewähltes Passwort">
+                        <ViewCell Tapped="CopyPassword">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="anwlinks" Text=""/>
+                                <Label x:Name="anwrechts" Text="" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell Tapped="CopyPassword">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="namelinks" Text=""/>
+                                <Label x:Name="namerechts" Text="" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell Tapped="CopyPassword">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="passlinks" Text=""/>
+                                <Label x:Name="passrechts" Text="" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell Tapped="CopyPassword">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="infolinks" Text=""/>
+                                <Label x:Name="inforechts" Text="" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
         </StackLayout>
     </ContentPage.Content>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Clicked="NewPW" Order="Primary" Icon="Xamarin.png" Text="Neues Passwort hinzufügen" Priority="0" />
-        <ToolbarItem Name="MenuItem2" Clicked="ChangePW" Order="Secondary" Icon="Xamarin.png" Text="Passwort aktualisieren" Priority="1" />
-        <ToolbarItem Name="MenuItem3" Clicked="ChangePWacl" Order="Secondary" Icon="Xamarin.png" Text="Zugriff ändern" Priority="1" />
-        <ToolbarItem Name="MenuItem4" Clicked="DelPW" Order="Secondary" Icon="Xamarin.png" Text="Passwort Löschen" Priority="1" />
+        <ToolbarItem Name="MenuItem1" Clicked="NewPW" Order="Primary" Text="Neues Passwort hinzufügen" Priority="0" />
+        <ToolbarItem Name="MenuItem2" Clicked="ChangePW" Order="Secondary" Icon="bearbeiten.png" Text="Passwort bearbeiten" Priority="0" />
+        <ToolbarItem Name="MenuItem3" Clicked="ChangePWacl" Order="Secondary" Icon="zugriff.png" Text="Zugriffsrechte bearbeiten" Priority="1" />
+        <ToolbarItem Name="MenuItem4" Clicked="DelPW" Order="Secondary" Icon="mulleimer.png" Text="Passwort löschen" Priority="2" />
     </ContentPage.ToolbarItems>
 </ContentPage>
     

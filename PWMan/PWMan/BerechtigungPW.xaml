@@ -19,15 +19,15 @@
             <!--                          -->
             <BoxView Grid.Row="1"/>
             <StackLayout Grid.Row="1" Padding="0,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <ListView x:Name="ohnerechte"/>
+                <ListView ItemSelected="FirstSelected" x:Name="ohnerechte"/>
             </StackLayout>
             <!--                          -->
             <BoxView Grid.Row="2"/>
             <StackLayout Grid.Row="2" Padding="70,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
-                <Button Text="hoch" Clicked="removeAccess"/>
+                <Button x:Name="removeaccess" Text="hoch" Clicked="RemoveAccess"/>
             </StackLayout>
             <StackLayout Grid.Row="2" Padding="0,0,70,0" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                <Button Text="runter" Clicked="addAccess"/>
+                <Button x:Name="addaccess" Text="runter" Clicked="AddAccess"/>
             </StackLayout>
             <!--                          -->
             <BoxView Grid.Row="3" BackgroundColor="Gray"/>
@@ -37,8 +37,11 @@
             <!--                          -->
             <BoxView Grid.Row="4"/>
             <StackLayout Grid.Row="4" Padding="0,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <ListView x:Name="mitrechte"/>
+                <ListView ItemSelected="SecondSelected" x:Name="mitrechte"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Clicked="GoBack" Order="Primary" Icon="Xamarin.png" Text="Zurück ins Menu" Priority="0" />
+    </ContentPage.ToolbarItems>
 </ContentPage>

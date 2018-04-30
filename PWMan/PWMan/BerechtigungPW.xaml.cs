@@ -1,61 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace PWMan
 {
-	public partial class BerechtigungPW : ContentPage
+    public partial class BerechtigungPW : ContentPage
 	{
         WebConnect Connection = new WebConnect();
         int pid, authcount, deauthcount;
+        string gid,uname;
         List<string> authusers = new List<string>();
         List<string> unauthusers = new List<string>();
-        public BerechtigungPW(int pid_temp)
+
+        public BerechtigungPW(int pid_temp,string username)
 		{
 			InitializeComponent();
             pid = pid_temp;
-            ohnerechte.ItemsSource = new string[]{
-            "mono",
-            "monodroid",
-            "monotouch",
-            "monorail",
-            "monodevelop",
-            "mono",
-            "monodroid",
-            "monotouch",
-            "monorail",
-            "monodevelop"
-            };
-            mitrechte.ItemsSource = new string[]{
-            "mono",
-            "monodroid",
-            "monotouch",
-            "monorail",
-            "monodevelop",
-            "mono",
-            "monodroid",
-            "monotouch",
-            "monorail",
-            "monodevelop"
-            };
+            uname = username;
+            GetUserList();
         }
-        private void getuserlist(List<string> authusers, List<string> unauthusers)
+        private         void GetUserList()                                                              //fill UI with data
         {
-            DataTable Users = Connection.DBtoDT("Get_All_Users", "");
-            DataTable Group = Connection.DBtoDT("Get_GID_By_PID", pid.ToString());  
-            //richtig?
-            string gid = Group.Rows[0].ItemArray[0].ToString();
-            DataTable authUsers = Connection.DBtoDT("Get_Auth_Users", gid);
+            DataTable Users = Connection.DBtoDT("Get_All_Users", "");                                   //Get all Users
+            DataTable Group = Connection.DBtoDT("Get_GID_By_PID", pid.ToString());                      //Get GID of the password
+            gid = Group.Rows[0].ItemArray[0].ToString();
+            DataTable authUsers = Connection.DBtoDT("Get_Auth_Users", gid);                             //Get all the authorised users
             authusers.Clear();
             unauthusers.Clear();
-
-            foreach (System.Data.DataRow row in Users.Rows)
+            foreach (System.Data.DataRow row in Users.Rows)                                             //fill authorised users list
             {
+                unauthusers.Add(row.ItemArray[1].ToString());
                 foreach (System.Data.DataRow row2 in authUsers.Rows)
                 {
                     if (row.ItemArray[0].ToString() == row2.ItemArray[0].ToString())
@@ -64,86 +39,95 @@ namespace PWMan
                     }
                 }
             }
-            foreach (System.Data.DataRow row in Users.Rows)
+            foreach (System.Data.DataRow row in authUsers.Rows)                                         //fill unauthorised users list
             {
-                foreach (System.Data.DataRow row2 in authUsers.Rows)
+                if (unauthusers.Contains(Connection.DBtoDT("Get_Uname_By_UID", row.ItemArray[0].ToString()).Rows[0].ItemArray[0].ToString()))
                 {
-                    if (!(row.ItemArray[0].ToString() == row2.ItemArray[0].ToString()))
-                    {
-                        if (!(unauthusers.Contains(row.ItemArray[1].ToString()) || unauthusers.Contains(row.ItemArray[1].ToString()))) { unauthusers.Add(row.ItemArray[1].ToString()); }
-                    }
+                    unauthusers.Remove(Connection.DBtoDT("Get_Uname_By_UID", row.ItemArray[0].ToString()).Rows[0].ItemArray[0].ToString());
                 }
-            }
+            } 
             authcount = authusers.Count;
             deauthcount = unauthusers.Count;
-            mitrechte.ItemsSource = authusers;
+            mitrechte.ItemsSource = authusers;                                                          //fill UI with data
             ohnerechte.ItemsSource = unauthusers;
         }
-
-        private async void removeAccess()
+        private async   void RemoveAccess(object sender, EventArgs e)                                   //remove users access to a password
         {
-            if (mitrechte.SelectedItem != null)
+            if (mitrechte.SelectedItem != null && mitrechte.SelectedItem.ToString() != "0")             //you need something selected
             {
-               if (authcount > 1)
+                addaccess.IsEnabled = false;                                                            //block user input
+                removeaccess.IsEnabled = false;
+                if (authcount > 1)
                 {
-                    string UserID = Connection.DBtoDT("Get_Own_Uid", mitrechte.SelectedItem.ToString()).Rows[0].ItemArray[0].ToString();
-                    DataTable PID = Connection.DBtoDT("Get_Own_Passwords", UserID);
+                    string UserID = Connection.DBtoDT("Get_Own_Uid", mitrechte.SelectedItem.ToString()).Rows[0].ItemArray[0].ToString(); //get users ID
+                    DataTable PID = Connection.DBtoDT("Get_Own_Passwords", UserID);                     //get his passwords
+
                     foreach (DataRow row in PID.Rows)
                     {
-                        if (row.ItemArray[1].ToString() == mitrechte.SelectedItem.ToString())
+                        if (Connection.DBtoDT("Get_GID_By_PID",row.ItemArray[0].ToString()).Rows[0].ItemArray[0].ToString() == gid)//get GID for the password
                         {
-                            Connection.DBRequest("Delete_Passwd_Pwlist", row.ItemArray[0].ToString());
-                            Connection.DBRequest("Delete_Passwd_Pwmapping", row.ItemArray[0].ToString());
+                            Connection.DBRequest("Delete_Pw_By_PID", row.ItemArray[0].ToString());      //delete the matching passwords
+                            Connection.DBRequest("Delete_Pw_By_PID_Pwmapping", row.ItemArray[0].ToString());//delete password mapping
                         }
-                        else await DisplayAlert("Fehler", "Der Programmierer ist dämlich :D", "Okay");
+                        else await DisplayAlert("Fehler", Connection.DBtoDT("Get_GID_By_PID", row.ItemArray[0].ToString()).Rows[0].ItemArray[0].ToString(), "Okay");
                     }
-                    authcount--;
+                    authcount--;                                                                        //Count how many people are authorised
                     deauthcount++;
-                    await Navigation.PushAsync(new PWMan.BerechtigungPW(pid));
+                    Navigation.InsertPageBefore(new PWMan.BerechtigungPW(pid, uname), this);            //Reload UI
+                    await Navigation.PopAsync();
                 }
                 else
                 {
                     await DisplayAlert("Rechte entziehen", "Es muss ein User mit Rechten verbleiben!", "Okay");
                 }
+                addaccess.IsEnabled = true;
+                removeaccess.IsEnabled = true;
             }
+            else await DisplayAlert("Rechte entziehen", "Wem sollen die Rechte entzogen werden???", "Ich wähle jemanden aus...");
         }
-
-        private async void addAccess()
-        {
-            
-            if (ohnerechte.SelectedItem != null)
+        private async   void AddAccess(object sender, EventArgs e)                                      //grant access to a password
+        {        
+            if (ohnerechte.SelectedItem != null && ohnerechte.SelectedItem.ToString() != "null")        //you need something selected
             {
-
+                addaccess.IsEnabled = false;                                                            //block userinput
+                removeaccess.IsEnabled = false;
                 string username = ohnerechte.SelectedItem.ToString();
-
-                /*
-                
-                DataTable PCount = Form2.getSQLData("SELECT PID from [dbo].[PWList]");
+                DataTable PCount = Connection.DBtoDT("Get_PID", "");                                    //list all PIDs to create next highest
                 int counter = 0;
                 foreach (System.Data.DataRow row in PCount.Rows)
                 {
                     if (Int32.Parse(row.ItemArray[0].ToString()) > counter) counter = Int32.Parse(row.ItemArray[0].ToString());
                 }
                 counter++;
-
-                DataTable UID = Form2.getSQLData("SELECT UID,Pkey from [dbo].[UserList] WHERE Uname='" + username + "'");
-                DataTable pkey = Form2.getSQLData("SELECT Pkey from [dbo].[UserList] WHERE Uname='" + username + "'");
-                String sqlstring = "INSERT INTO [dbo].[PWList] VALUES ('" + counter.ToString() + "','" + EncryptRSA.EncryptStringforother(PW.Rows[0].ItemArray[1].ToString(), pkey.Rows[0].ItemArray[0].ToString()) + "', '" + EncryptRSA.EncryptStringforother(PW.Rows[0].ItemArray[2].ToString(), pkey.Rows[0].ItemArray[0].ToString()) + "', '" + EncryptRSA.EncryptStringforother(PW.Rows[0].ItemArray[3].ToString(), pkey.Rows[0].ItemArray[0].ToString()) + "', '" + EncryptRSA.EncryptStringforother(PW.Rows[0].ItemArray[4].ToString(), pkey.Rows[0].ItemArray[0].ToString()) + "')";
-                Form2.updateSQLData(sqlstring);
-                DataTable Group = Form2.getSQLData("SELECT GID from [dbo].[PWMapping] WHERE PID='" + pid + "'");
-                string gid = Group.Rows[0].ItemArray[0].ToString();
-                String sqlstring2 = "INSERT INTO [dbo].[PWMapping] VALUES ('" + UID.Rows[0].ItemArray[0].ToString() + "','" + counter.ToString() + "', '" + gid + "')";
-                Form2.updateSQLData(sqlstring2);
-
-
-    */
-
-
-
-                await Navigation.PushAsync(new PWMan.BerechtigungPW(pid));
+                string UID = Connection.DBtoDT("Get_Own_Uid", username).Rows[0].ItemArray[0].ToString();//get own UID
+                DataTable PassInfo = Connection.DBtoDT("Get_Password_From_ID", pid.ToString());         //get all own passwords
+                Connection.DBRequest("Insert_New_Password", "'" + counter.ToString() + "' ,'" + PassInfo.Rows[0].ItemArray[1].ToString() + "' ,'" + PassInfo.Rows[0].ItemArray[2].ToString() + "', '" + PassInfo.Rows[0].ItemArray[3].ToString() + "', '" + PassInfo.Rows[0].ItemArray[4].ToString() + "'");//insert_pwd
+                Connection.DBRequest("Insert_New_Password_Mapping", "'" + UID + "', '" + counter.ToString() + "', '" + gid + "'");//implement password for the second user
+                Navigation.InsertPageBefore(new PWMan.BerechtigungPW(pid, uname), this);                //Reload Page
+                addaccess.IsEnabled = true;
+                removeaccess.IsEnabled = true;
+                await Navigation.PopAsync();   
             }
-            else await DisplayAlert("Rechte erteilen", "Wer soll denn Rechte erhalten???", "Okay");
-
+            else await DisplayAlert("Rechte erteilen", "Wer soll denn Rechte erhalten???", "Ich wähle jemanden aus...");
+        }
+        private async   void GoBack(object sender, EventArgs e)                                         //Go Back to Main Menu
+        {
+            Navigation.InsertPageBefore(new PWMan.MainPage(uname), this);
+            await Navigation.PopAsync();
+        }
+        private         void FirstSelected(object sender, EventArgs e)                                  //deselect second listview
+        {
+            if (ohnerechte.SelectedItem.ToString() != "0")
+            {
+                mitrechte.SelectedItem = 0;
+            }
+        }
+        private         void SecondSelected(object sender, EventArgs e)                                 //deselect first listview
+        {
+            if (mitrechte.SelectedItem.ToString() != "0")
+            {
+                ohnerechte.SelectedItem = 0;
+            }
         }
     }
 }

@@ -6,7 +6,8 @@
         <StackLayout Margin="50,100,50,100">
             <Entry x:Name="loginname" Placeholder="Login Name"/>
             <Entry x:Name="loginpasswd" Placeholder="Passwort" IsPassword="True"/>
-            <Button Text="Login" Clicked="Login_Clicked"/>
+            <Button x:Name="loginbutton" Text="Login" Clicked="Login_Clicked"/>
+            <Button x:Name="registrationbutton" Text="Registrieren" Clicked="Registration_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

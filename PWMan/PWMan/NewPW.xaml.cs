@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace PWMan
 {
@@ -13,33 +8,34 @@ namespace PWMan
     {
         public string UserID, MainPageUsername;
         WebConnect Connection = new WebConnect();
+
         public NewPW(string UID, string uname)
         {
             InitializeComponent();
             UserID = UID;
             MainPageUsername = uname;
-
         }
-
-        private async void Pwd_Save_Clicked(object sender, EventArgs e)
+        private async void Pwd_Save_Clicked(object sender, EventArgs e)                                                                                     //Save the new password
         {
-            if (anwendung.Text != null && password.Text != null)
+            int counter = 0;
+            if (anwendung.Text != null && password.Text != null)                                                                                            //The least of input
             {
-                DataTable PCount = Connection.DBtoDT("Get_PID", "");//list_pid
-                int counter = 0;
-                foreach (System.Data.DataRow row in PCount.Rows)
+                byte[] tmp = Connection.DBRequest("Get_PID", "");
+                if (tmp.Length != 0)
                 {
-                    if (row.ItemArray[0].ToString() != "")
+                    savebutton.IsEnabled = false;                                                                                                               //Block Userinput
+                    DataTable PCount = Connection.DBtoDT("Get_PID", "");                                                                                        //list all PIDs to calculate the next higher one
+                    foreach (System.Data.DataRow row in PCount.Rows)
                     {
-                        if (Int32.Parse(row.ItemArray[0].ToString()) > counter) counter = Int32.Parse(row.ItemArray[0].ToString());
+                        if (row.ItemArray[0].ToString() != "")
+                        {
+                            if (Int32.Parse(row.ItemArray[0].ToString()) > counter) counter = Int32.Parse(row.ItemArray[0].ToString());
+                        }
                     }
-
                 }
                 counter++;
-                //textBox4.Text = counter.ToString();
-                //String sqlstring = "INSERT INTO [dbo].[PWList] VALUES ('" + textBox4.Text + "' ,'" + EncryptRSA.EncryptString(textBox1.Text) + "' ,'" + EncryptRSA.EncryptString(textBox2.Text) + "', '" + EncryptRSA.EncryptString(textBox3.Text) + "', '" + EncryptRSA.EncryptString(textBox5.Text) + "')";//insert_pwd
-                Connection.DBRequest("Insert_New_Password", "'" + counter.ToString() + "' ,'" + anwendung.Text + "' ,'" + username.Text + "', '" + password.Text + "', '" + information.Text + "'");//insert_pwd
-                DataTable GIDcount = Connection.DBtoDT("Get_GID", "");
+                Connection.DBRequest("Insert_New_Password", "'" + counter.ToString() + "' ,'" + anwendung.Text + "' ,'" + username.Text + "', '" + password.Text + "', '" + information.Text + "'"); //insert password in database
+                DataTable GIDcount = Connection.DBtoDT("Get_GID", "");                                                                                      //list all GIDs to calculate the next higher one
                 int GID = 0;
                 foreach (System.Data.DataRow row in GIDcount.Rows)
                 {
@@ -47,10 +43,10 @@ namespace PWMan
                         GID = Int32.Parse(row.ItemArray[0].ToString());
                 }
                 GID = GID + 1;
-                Connection.DBRequest("Insert_New_Password_Mapping", "'" + UserID + "', '" + counter.ToString() + "', '" + GID + "'");
-
-                await Navigation.PushAsync(new PWMan.MainPage(MainPageUsername));
-                }
+                Connection.DBRequest("Insert_New_Password_Mapping", "'" + UserID + "', '" + counter.ToString() + "', '" + GID + "'");                       //insert new password in mapping table
+                Navigation.InsertPageBefore(new PWMan.MainPage(MainPageUsername), this);                                                                    //Go back to Mainpage
+                await Navigation.PopAsync();
+            }
             else
             {
                 await DisplayAlert("Unzureichende Eingaben", "Bitte alle nötigen Werte aufüllen!", "Versuchs nochmal");

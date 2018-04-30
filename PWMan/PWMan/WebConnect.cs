@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
-using System.Diagnostics;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -11,41 +10,33 @@ namespace PWMan
 {
     public class WebConnect
     {
-            private string url = "http://mrbeats.zapto.org:2622/dbrequest.php";
+            private string url = "http://mrbeats.zapto.org:2622/dbrequest.php";                                     //Raspi 3
             private string urlLogin = "http://mrbeats.zapto.org:2622/checklogin.php";
+            private string urlCreateCert = "http://mrbeats.zapto.org:2622/createCert.php";
+            private string urlGetCertTemplate = "http://mrbeats.zapto.org:2622/getCert.php?filename=";
 
-            public byte[] DBRequest(string keyword, string parameter)
+            public byte[] DBRequest(string keyword, string parameter)                                               //simple DB Request
             {
                 using (WebClient client = new WebClient())
                 {
-                    NameValueCollection postData = new NameValueCollection()
+                    NameValueCollection postData = new NameValueCollection()                                        //send params via POST
                     {
                         { "statement", keyword },
-                        { "parameter", parameter }       //order: {"parameter name", "parameter value"}
-                                                           //DB Statement, dass an den Webserver geschickt wird
+                        { "parameter", parameter }                                                                  //statement = name of db-rquest, parameter changes depending on statement                               
                     };
-                return client.UploadValues(url, postData);
-                    // client.UploadValues returns page's source as byte array (byte[])
-                    // so it must be transformed into a string
-                
+                return client.UploadValues(url, postData);                
                 }
             }
-            public bool CheckLogin(string username, string pwd)
+            public bool CheckLogin(string username, string pwd)                                                     //Login via username and password
             {
                 using (WebClient client = new WebClient())
                 {
                     NameValueCollection postData = new NameValueCollection()
                     {
                         { "username", username },
-                        { "password", pwd }       //order: {"parameter name", "parameter value"}
-                                                           //DB Statement, dass an den Webserver geschickt wird
+                        { "password", pwd }                                                           
                     };
-
-                    // client.UploadValues returns page's source as byte array (byte[])
-                    // so it must be transformed into a string
-                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(urlLogin, postData));
-                    Debug.WriteLine(pagesource);
-                    //Console.Read();
+                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(urlLogin, postData));           //Byte[] to string conversion
                     if (pagesource == "TRUE")
                     {
                         return true;
@@ -56,49 +47,60 @@ namespace PWMan
                     }
                 }
             }     
-            public DataTable FetchToDT(string input)
+            public DataTable FetchToDT(string input)                                                                //Convert DBRequest string to DataTable
             {
             DataTable sqlreturn = new DataTable();
+            List<string> resultlist = new List<string>();
+            List<string[]> splittedresults = new List<string[]>();
             string pattern = "[|]";
             string newpattern = "[;]";
-            //der input ist dann der return vom webserver(sieht genau so aus)
-            
             string[] result = Regex.Split(input, pattern);
-            List<string> resultlist = new List<string>();
+            
             foreach (string item in result)
             {
-                resultlist.Add(item);
+                resultlist.Add(item);                                                                                //Every result from the request converts to a datatable row
             }
             resultlist.RemoveAt(resultlist.Count-1);
             resultlist.RemoveAt(0);
-            List<string[]> splittedresults = new List<string[]>();
+            
             foreach (string Element in resultlist)
             {
-                splittedresults.Add(Regex.Split(Element, newpattern));
+                splittedresults.Add(Regex.Split(Element, newpattern));                                              //Split each column of every row
             }
             for (int ctr = 0; ctr < splittedresults[0].Length; ctr++)
             {
-                sqlreturn.Columns.Add(ctr.ToString(), typeof(String));
+                sqlreturn.Columns.Add(ctr.ToString(), typeof(String));                                              //prepare DataTable
             }
             foreach (string[] row in splittedresults)
             {
-                sqlreturn.Rows.Add(row);
+                sqlreturn.Rows.Add(row);                                                                            //Get everything back together
             }
             return sqlreturn;
             }
-            public DataTable DBtoDT(string keyword, string parameter)
+            public DataTable DBtoDT(string keyword, string parameter)                                               //Simplifys handling of the connector
             {
             return FetchToDT(System.Text.Encoding.Default.GetString(DBRequest(keyword, parameter)));
             }
-            public void PrintDTtoDebug(DataTable dt)
+            public byte[] CreateCert(string UID, string username)
+        {
+            using (WebClient client = new WebClient())
             {
-            foreach (DataRow dataRow in dt.Rows)
-            {
-                foreach (var item in dataRow.ItemArray)
-                {
-                    Debug.WriteLine(item);
-                }
+                NameValueCollection postData = new NameValueCollection()
+                    {
+                        { "UID", UID },
+                        { "Username", username }       //order: {"parameter name", "parameter value"}
+                                                           //DB Statement, dass an den Webserver geschickt wird
+                    };
+                return client.UploadValues(urlCreateCert, postData);
+                // client.UploadValues returns page's source as byte array (byte[])
+                // so it must be transformed into a string     
             }
+        }
+            public void GetCertFile(string URLFilename, string path)
+        {
+            string urlGetCert = urlGetCertTemplate + URLFilename;
+            WebClient client = new WebClient();
+            client.DownloadFile(urlGetCert, path);
         }
     }
 }

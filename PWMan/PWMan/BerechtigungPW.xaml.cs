@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Cryptography.X509Certificates;
 using Xamarin.Forms;
 
 namespace PWMan
@@ -12,13 +13,15 @@ namespace PWMan
         string gid,uname;
         List<string> authusers = new List<string>();
         List<string> unauthusers = new List<string>();
+        X509Certificate2 X509UserCert;
 
-        public BerechtigungPW(int pid_temp,string username)
+        public BerechtigungPW(int pid_temp,string username, X509Certificate2 X509UserCert_t)
 		{
 			InitializeComponent();
             pid = pid_temp;
             uname = username;
             GetUserList();
+            X509UserCert = X509UserCert_t;
         }
         private         void GetUserList()                                                              //fill UI with data
         {
@@ -73,7 +76,7 @@ namespace PWMan
                     }
                     authcount--;                                                                        //Count how many people are authorised
                     deauthcount++;
-                    Navigation.InsertPageBefore(new PWMan.BerechtigungPW(pid, uname), this);            //Reload UI
+                    Navigation.InsertPageBefore(new PWMan.BerechtigungPW(pid, uname, X509UserCert), this);            //Reload UI
                     await Navigation.PopAsync();
                 }
                 else
@@ -103,7 +106,7 @@ namespace PWMan
                 DataTable PassInfo = Connection.DBtoDT("Get_Password_From_ID", pid.ToString());         //get all own passwords
                 Connection.DBRequest("Insert_New_Password", "'" + counter.ToString() + "' ,'" + PassInfo.Rows[0].ItemArray[1].ToString() + "' ,'" + PassInfo.Rows[0].ItemArray[2].ToString() + "', '" + PassInfo.Rows[0].ItemArray[3].ToString() + "', '" + PassInfo.Rows[0].ItemArray[4].ToString() + "'");//insert_pwd
                 Connection.DBRequest("Insert_New_Password_Mapping", "'" + UID + "', '" + counter.ToString() + "', '" + gid + "'");//implement password for the second user
-                Navigation.InsertPageBefore(new PWMan.BerechtigungPW(pid, uname), this);                //Reload Page
+                Navigation.InsertPageBefore(new PWMan.BerechtigungPW(pid, uname, X509UserCert), this);                //Reload Page
                 addaccess.IsEnabled = true;
                 removeaccess.IsEnabled = true;
                 await Navigation.PopAsync();   
@@ -112,7 +115,7 @@ namespace PWMan
         }
         private async   void GoBack(object sender, EventArgs e)                                         //Go Back to Main Menu
         {
-            Navigation.InsertPageBefore(new PWMan.MainPage(uname), this);
+            Navigation.InsertPageBefore(new PWMan.MainPage(uname, X509UserCert), this);
             await Navigation.PopAsync();
         }
         private         void FirstSelected(object sender, EventArgs e)                                  //deselect second listview

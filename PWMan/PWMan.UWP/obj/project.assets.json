@@ -7009,26 +7009,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jamie\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+    "C:\\Users\\msche\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.UWP\\PWMan.UWP.csproj",
+      "projectUniqueName": "D:\\Users\\msche\\Documents\\Studium\\Mobile Systeme\\PWManager\\PWMan\\PWMan.UWP\\PWMan.UWP.csproj",
       "projectName": "PWMan.UWP",
-      "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.UWP\\PWMan.UWP.csproj",
-      "packagesPath": "C:\\Users\\jamie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan.UWP\\obj\\",
+      "projectPath": "D:\\Users\\msche\\Documents\\Studium\\Mobile Systeme\\PWManager\\PWMan\\PWMan.UWP\\PWMan.UWP.csproj",
+      "packagesPath": "C:\\Users\\msche\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\msche\\Documents\\Studium\\Mobile Systeme\\PWManager\\PWMan\\PWMan.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\jamie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\msche\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -7042,8 +7040,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
-              "projectPath": "C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
+            "D:\\Users\\msche\\Documents\\Studium\\Mobile Systeme\\PWManager\\PWMan\\PWMan\\PWMan.csproj": {
+              "projectPath": "D:\\Users\\msche\\Documents\\Studium\\Mobile Systeme\\PWManager\\PWMan\\PWMan\\PWMan.csproj"
             }
           }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using PCLStorage;
@@ -14,15 +15,17 @@ namespace PWMan
 	{
         WebConnect Connection = new WebConnect();
         string pid, oldusername;
+        X509Certificate2 X509UserCert;
         PWMan.MainPage lastpage;
 
-		public ChangePW(List<string> olddata,string temp_username,PWMan.MainPage lastSite)
+		public ChangePW(List<string> olddata,string temp_username,PWMan.MainPage lastSite, X509Certificate2 X509UserCert_t)
 		{
 			InitializeComponent();
+            X509UserCert = X509UserCert_t;
             //Fill Labels with Text
             anwendung.Text = olddata[1];
             username.Text = olddata[2];
-            password.Text = olddata[3];
+            password.Text = X509Certificate.DecryptString(olddata[3], X509UserCert);
             information.Text = olddata[4];
             pid = olddata[0];
             //Save values globally
@@ -38,10 +41,11 @@ namespace PWMan
                 DataTable Group = Connection.DBtoDT("Get_PID_By_GID_Pwmapping", gid);                                                       //obtain all passwords with this GID
                 foreach (System.Data.DataRow row in Group.Rows)
                 {
-                    string updatestr = "PID='" + pid + "', Anwendung='" + anwendung.Text + "', Username='" + username.Text + "', Passwort='" + password.Text + "', Informationen='" + information.Text + "' WHERE PID='" + pid +"'";
+                    string cryptedpw = X509Certificate.EncryptString(password.Text,X509UserCert);
+                    string updatestr = "PID='" + pid + "', Anwendung='" + anwendung.Text + "', Username='" + username.Text + "', Passwort='" + cryptedpw + "', Informationen='" + information.Text + "' WHERE PID='" + pid +"'";
                     Connection.DBRequest("Update_Pw_By_PID", updatestr);                                                                    //change all these passwords
                 }
-                lastpage.GetPWList(oldusername);                                                                                            //refresh main UI
+                lastpage.GetPWList(oldusername, X509UserCert);                                                                                            //refresh main UI
                 await Navigation.PopAsync();                                                                                                //Go to Mainpage
             }
             else

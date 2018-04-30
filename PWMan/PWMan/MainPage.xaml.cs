@@ -4,24 +4,28 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Xamarin.Forms;
 
 namespace PWMan
 {
     public partial class MainPage : ContentPage
 	{
-        public string username, UserID;                                   //Save until Closing of App
+        public string username, UserID;
+        public X509Certificate2 X509UserCert;
+        //Save until Closing of App
         WebConnect Connection = new WebConnect();                         //Connection Webserver   
 
-        public MainPage(string username_t)
+        public MainPage(string username_t, X509Certificate2 X509UserCert_t)
         {
 			InitializeComponent();
             username = username_t;
+            X509UserCert = X509UserCert_t;
             UserID = Connection.DBtoDT("Get_Own_Uid", username).Rows[0].ItemArray[0].ToString();
             tableview.IsVisible = false;                                  //Hide Tableview until password is selected
-            GetPWList(username);                                          //Fill Listview with data
+            GetPWList(username, X509UserCert);                                          //Fill Listview with data
         }
-        private         List<string[]> GetPassasList(string username)     //Get passwordlist from webserver
+        private         List<string[]> GetPassasList(string username, X509Certificate2 X509UserCert)     //Get passwordlist from webserver
         {
             //variables
             List<string[]> passwordlist;
@@ -48,7 +52,6 @@ namespace PWMan
                     {
                         Listview.Rows.Add(Connection.FetchToDT(System.Text.Encoding.Default.GetString(Connection.DBRequest("Get_Password_From_ID", pid))).Rows[0].ItemArray);
                     }
-
                 }
                 //Parse Datatable to List<string[]>
                 passwordlist =
@@ -62,17 +65,17 @@ namespace PWMan
             else passwordlist = new List<string[]>();
             return passwordlist;
         }
-        public          void GetPWList(string username)                   //Fill Listview with data
+        public          void GetPWList(string username, X509Certificate2 X509UserCert)                   //Fill Listview with data
         {
             PasswordListView.ItemsSource = new string[] { };    //Clear Listview
-            List<string[]> allpasswords = GetPassasList(username); //Get all passwords
+            List<string[]> allpasswords = GetPassasList(username, X509UserCert); //Get all passwords
             PasswordListView.ItemsSource = allpasswords; //Refill Listview
             PasswordListView.SelectedItem = 0;
             tableview.IsVisible = false;    //Hide Tableview until new password is selected
         } 
         private async   void NewPW(object sender, EventArgs e)            //create new password entry
         {
-            await Navigation.PushAsync(new PWMan.NewPW(UserID,username));
+            await Navigation.PushAsync(new PWMan.NewPW(UserID,username,X509UserCert));
         }
         private async   void ChangePW(object sender, EventArgs e)         //Update passwort values
         {
@@ -88,7 +91,7 @@ namespace PWMan
                         actualPW.Add(item.ToString());
                     }
                 }
-                await Navigation.PushAsync(new PWMan.ChangePW(actualPW,username,this));
+                await Navigation.PushAsync(new PWMan.ChangePW(actualPW,username,this,X509UserCert));
             }
             else await DisplayAlert("Passwort ändern", "Du musst ein Passwort auswählen...", "Okay");
         }
@@ -106,7 +109,7 @@ namespace PWMan
                 }
                 pid = Int32.Parse(actualData[0]);
             }
-            if (pid != 0) await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid,username)));
+            if (pid != 0) await Navigation.PushModalAsync(new NavigationPage(new PWMan.BerechtigungPW(pid,username, X509UserCert)));
             else await DisplayAlert("Berechtigungen ändern", "Du musst ein Passwort auswählen...", "Okay");
         }
         private async   void DelPW(object sender, EventArgs e)            //Delete PW for all users
@@ -135,7 +138,7 @@ namespace PWMan
                         Connection.DBRequest("Delete_Pw_By_PID", row.ItemArray[0].ToString());                              //Delete all passwords with this GroupID
                     }
                     Connection.DBRequest("Delete_Pw_By_GID", GID.Rows[0].ItemArray[0].ToString());                          //Delete GroupID from Mapping
-                    GetPWList(username);                                                                                    //Reload UI
+                    GetPWList(username, X509UserCert);                                                                                    //Reload UI
                 }
 
             }
@@ -163,7 +166,7 @@ namespace PWMan
             infolinks.Text = "Informationen:";
             namelinks.Text = "Username:";
             anwrechts.Text = actualPW[1];
-            passrechts.Text = actualPW[3];
+            passrechts.Text = X509Certificate.DecryptString(actualPW[3],X509UserCert);
             inforechts.Text = actualPW[4];
             namerechts.Text = actualPW[2];
         }

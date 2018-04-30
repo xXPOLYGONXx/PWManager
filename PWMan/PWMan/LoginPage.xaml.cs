@@ -20,8 +20,9 @@ namespace PWMan
             registrationbutton.IsEnabled = false;
             if (loginname.Text != null && loginpasswd.Text != null)
             {
-                DataTable User = Connection.DBtoDT("Get_All_From_UserBy_Username", loginname.Text);
-                if (User == null)
+                byte[] tmp = Connection.DBRequest("Get_All_From_UserBy_Username", loginname.Text);
+                
+                if (tmp.Length == 0)
                 {
                     await DisplayAlert("Fehler", "Du hast einen falschen Username angegeben!", "Username überprüfen");
                     //Entsperren des Buttons
@@ -30,18 +31,22 @@ namespace PWMan
                 }
                 else
                 {
+                    DataTable User = Connection.DBtoDT("Get_All_From_UserBy_Username", loginname.Text);
                     string tmpUID = User.Rows[0].ItemArray[0].ToString();
                     string X509UserCertFileName = loginname.Text + "_" + tmpUID + ".p12";
                     IFolder folder = FileSystem.Current.LocalStorage;
-                    string existFile = folder.CheckExistsAsync(X509UserCertFileName).Result.ToString();
-                    if (existFile == "FileExists")
+                    string path = folder.Path;
+                    //string existFile = folder.CheckExistsAsync(X509UserCertFileName).Result.ToString();
+                    ExistenceCheckResult existFile = await folder.CheckExistsAsync(X509UserCertFileName);
+                    //if (existFile == "FileExists")
+                    if (existFile == ExistenceCheckResult.FileExists)
                     {
                         IFile X509UserCertFile = await folder.GetFileAsync(X509UserCertFileName);
                         X509Certificate2 X509UserCert = new X509Certificate2();
                         X509UserCert.Import(X509UserCertFile.Path);
                         if (X509Certificate.DecryptString(User.Rows[0].ItemArray[2].ToString(), X509UserCert) == loginpasswd.Text)
                         {
-                            Navigation.InsertPageBefore(new PWMan.MainPage(loginname.Text.ToString()), this);                       //Create new mainpage
+                            Navigation.InsertPageBefore(new PWMan.MainPage(loginname.Text.ToString(), X509UserCert), this);                       //Create new mainpage
                             await Navigation.PopAsync();
                         }
                         else

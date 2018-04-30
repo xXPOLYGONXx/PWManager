@@ -11,7 +11,7 @@
 namespace PWMan {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\MainPage.xa" +
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Users\\msche\\Documents\\Studium\\Mobile Systeme\\PWManager\\PWMan\\PWMan\\MainPage.xa" +
         "ml")]
     public partial class MainPage : global::Xamarin.Forms.ContentPage {
         

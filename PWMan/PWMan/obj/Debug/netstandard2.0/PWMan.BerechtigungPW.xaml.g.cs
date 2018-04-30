@@ -11,7 +11,7 @@
 namespace PWMan {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\jamie\\Documents\\Visual Studio 2017\\git\\PWManager\\PWMan\\PWMan\\Berechtigun" +
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Users\\msche\\Documents\\Studium\\Mobile Systeme\\PWManager\\PWMan\\PWMan\\Berechtigun" +
         "gPW.xaml")]
     public partial class BerechtigungPW : global::Xamarin.Forms.ContentPage {
         

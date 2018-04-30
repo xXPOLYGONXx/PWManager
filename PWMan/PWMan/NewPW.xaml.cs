@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Security.Cryptography.X509Certificates;
 using Xamarin.Forms;
 
 namespace PWMan
@@ -7,13 +8,15 @@ namespace PWMan
     public partial class NewPW : ContentPage
     {
         public string UserID, MainPageUsername;
+        public X509Certificate2 X509UserCert;
         WebConnect Connection = new WebConnect();
 
-        public NewPW(string UID, string uname)
+        public NewPW(string UID, string uname, X509Certificate2 X509UserCert_t)
         {
             InitializeComponent();
             UserID = UID;
             MainPageUsername = uname;
+            X509UserCert = X509UserCert_t;
         }
         private async void Pwd_Save_Clicked(object sender, EventArgs e)                                                                                     //Save the new password
         {
@@ -34,17 +37,30 @@ namespace PWMan
                     }
                 }
                 counter++;
-                Connection.DBRequest("Insert_New_Password", "'" + counter.ToString() + "' ,'" + anwendung.Text + "' ,'" + username.Text + "', '" + password.Text + "', '" + information.Text + "'"); //insert password in database
-                DataTable GIDcount = Connection.DBtoDT("Get_GID", "");                                                                                      //list all GIDs to calculate the next higher one
+                //Das PW muss verschlüsselt einmal in einem String gespeichert werden, da es sonst Probleme gibt
+                string cryptednewpw = X509Certificate.EncryptString(password.Text, X509UserCert);
+                string parameter = "'" + counter.ToString() + "' ,'" + anwendung.Text + "' ,'" + username.Text + "', '" + cryptednewpw + "', '" + information.Text + "'";
+                Connection.DBRequest("Insert_New_Password", parameter); //insert password in database
+
                 int GID = 0;
-                foreach (System.Data.DataRow row in GIDcount.Rows)
+                byte[] tmpGID = Connection.DBRequest("Get_GID", "");
+                if (tmpGID.Length != 0)
                 {
-                    if (Int32.Parse(row.ItemArray[0].ToString()) > GID)
-                        GID = Int32.Parse(row.ItemArray[0].ToString());
+                    DataTable GIDcount = Connection.DBtoDT("Get_GID", "");                                                                                      //list all GIDs to calculate the next higher one
+
+                    foreach (System.Data.DataRow row in GIDcount.Rows)
+                    {
+                        if (Int32.Parse(row.ItemArray[0].ToString()) > GID)
+                            GID = Int32.Parse(row.ItemArray[0].ToString());
+                    }
+                    GID = GID + 1;
                 }
-                GID = GID + 1;
+                else
+                {
+                    GID = 1;
+                }
                 Connection.DBRequest("Insert_New_Password_Mapping", "'" + UserID + "', '" + counter.ToString() + "', '" + GID + "'");                       //insert new password in mapping table
-                Navigation.InsertPageBefore(new PWMan.MainPage(MainPageUsername), this);                                                                    //Go back to Mainpage
+                Navigation.InsertPageBefore(new PWMan.MainPage(MainPageUsername, X509UserCert), this);                                                                    //Go back to Mainpage
                 await Navigation.PopAsync();
             }
             else
